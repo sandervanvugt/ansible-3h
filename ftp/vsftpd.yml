@@ -1,0 +1,17 @@
+---
+- name: deploy vsftpd
+  hosts: all
+  tasks: 
+  - name: install vsftpd
+    package:
+      name: vsftpd
+      state: latest
+  - name: enable vsftpd
+    service: name=vsftpd enabled=true
+  - name: create readme file
+    copy:
+      content: "welcome to my friendly server\n"
+      dest: /var/ftp/pub/README
+      force: no
+      mode: 0444
+...

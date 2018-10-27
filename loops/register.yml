@@ -1,0 +1,9 @@
+---
+- name: registered variables demo 1
+  hosts: all
+  tasks:
+  - name: capture output of the who command
+    command: who
+    register: loggedin
+  - shell: echo "user ansible is logged in"
+    when: loggedin.stdout.find('ansible') 

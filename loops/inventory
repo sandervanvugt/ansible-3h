@@ -1,0 +1,11 @@
+[centos]
+ansible1.example.com
+ansible2.example.com
+ansible3.example.com
+
+[ubuntu]
+ubuntu.example.com
+
+[webservers]
+ansible3.example.com
+192.168.4.50

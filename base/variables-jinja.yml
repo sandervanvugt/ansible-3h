@@ -1,0 +1,58 @@
+- name: deploy and start Apache
+  hosts: ansible2.example.com
+  vars:
+    apache_package: httpd
+    firewall_package: firewalld
+    web_service: httpd
+    firewall_service: firewalld
+    rule: http
+    system_owner: anna@example.com
+
+  tasks:
+    - name: install and update latest packages
+      yum: 
+        name: 
+          - "{{ apache_package }}"
+          - "{{ firewall_package }}"
+        state: latest
+
+    - name: start and enable {{ firewall_service }}
+      service: 
+        name: "{{ firewall_service  }}"
+        enabled: true
+        state: started
+
+    - template:
+        src: http.j2
+        dest: /etc/httpd/conf.d
+        owner: root
+        group: root
+        mode: 0644
+
+    - name: create web content
+      copy: 
+        content: "Welcome at the Ansible managed web server"
+        dest: /var/www/html/index.html
+
+    - name: start and enable {{ web_service }}
+      service:
+        name: "{{ web_service }}"
+        enabled: true
+        state:  started
+
+    - name: open firewall for {{ rule }}
+      firewalld:
+        service: "{{ rule }}"
+        permanent: true
+        immediate: true
+        state: enabled
+
+- name: verify the web server
+  hosts: localhost
+  become: false
+  tasks:
+    - name: test that webserver is available
+      uri:
+        url: http://ansible2.example.com
+        status_code: 200
+

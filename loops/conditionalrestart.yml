@@ -1,0 +1,13 @@
+---
+- hosts: all
+  tasks:
+  - name: vsftpd status
+    command: /usr/bin/systemctl is-active vsftpd
+    ignore_errors: yes
+    register: result
+
+  - name: create file in FTP doc root
+    copy: 
+      src: /etc/hosts
+      dest: /var/ftp/pub
+    when: result.rc == 0 

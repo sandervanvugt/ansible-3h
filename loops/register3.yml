@@ -1,0 +1,8 @@
+---
+- name: show register
+  hosts: ansible1.example.com
+  tasks:
+    - name: get output of id command
+      command: id -un
+      register: loggedin
+    - debug: var=loggedin

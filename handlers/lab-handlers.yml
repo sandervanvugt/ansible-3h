@@ -1,0 +1,22 @@
+---
+- name: copy new index.html
+  hosts: all
+#  vars:
+#    remote_dir: /etc/ansible/facts.d
+#    facts_file: custom.fact
+  tasks:
+    - name: install httpd
+      yum: name=httpd
+  tasks:
+    - name: copy index.html
+      copy:
+        src: /tmp/index.html
+        dest: /var/www/html/index.html
+      notify:
+        - restart_web
+  handlers:
+    - name: restart_web
+      service:
+        name: httpd
+        state: restarted
+  

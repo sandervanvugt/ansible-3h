@@ -1,0 +1,6 @@
+---
+- name: use role to install mariadb
+  hosts: ansible2.example.com
+
+  roles:
+    - f500.mariadb55

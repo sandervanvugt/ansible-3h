@@ -1,0 +1,11 @@
+- name: create users
+  hosts: ansible2.example.com
+  tasks:
+  - name: manage users and group membership
+    user:
+      name: "{{ item.name }}"
+      state: present
+      groups: "{{ item.groups }}"
+    with_items:
+      - { name: 'linda', groups: 'students' }
+      - { name: 'anna', groups: 'profs' }

@@ -1,0 +1,636 @@
+2018-09-11 18:20:23,289 p=9331 u=ansible |  PLAY [copy new index.html] ******************************************************************************************************************
+2018-09-11 18:20:23,306 p=9331 u=ansible |  TASK [Gathering Facts] **********************************************************************************************************************
+2018-09-11 18:20:25,404 p=9331 u=ansible |  ok: [ansible2.example.com]
+2018-09-11 18:20:25,475 p=9331 u=ansible |  ok: [ansible1.example.com]
+2018-09-11 18:20:25,508 p=9331 u=ansible |  TASK [install httpd] ************************************************************************************************************************
+2018-09-11 18:20:26,561 p=9331 u=ansible |  ok: [ansible2.example.com]
+2018-09-11 18:20:26,578 p=9331 u=ansible |  ok: [ansible1.example.com]
+2018-09-11 18:20:26,610 p=9331 u=ansible |  TASK [copy index.html] **********************************************************************************************************************
+2018-09-11 18:20:27,929 p=9331 u=ansible |  ok: [ansible2.example.com]
+2018-09-11 18:20:27,934 p=9331 u=ansible |  ok: [ansible1.example.com]
+2018-09-11 18:20:27,964 p=9331 u=ansible |  TASK [copy nothing] *************************************************************************************************************************
+2018-09-11 18:20:28,208 p=9331 u=ansible |  An exception occurred during task execution. To see the full traceback, use -vvv. The error was: If you are using a module and expect the file to exist on the remote, see the remote_src option
+2018-09-11 18:20:28,209 p=9331 u=ansible |  fatal: [ansible1.example.com]: FAILED! => {"changed": false, "msg": "Could not find or access '/tmp/nothing' on the Ansible Controller.\nIf you are using a module and expect the file to exist on the remote, see the remote_src option"}
+2018-09-11 18:20:28,241 p=9331 u=ansible |  An exception occurred during task execution. To see the full traceback, use -vvv. The error was: If you are using a module and expect the file to exist on the remote, see the remote_src option
+2018-09-11 18:20:28,241 p=9331 u=ansible |  fatal: [ansible2.example.com]: FAILED! => {"changed": false, "msg": "Could not find or access '/tmp/nothing' on the Ansible Controller.\nIf you are using a module and expect the file to exist on the remote, see the remote_src option"}
+2018-09-11 18:20:28,243 p=9331 u=ansible |  	to retry, use: --limit @/home/ansible/loops/handlers.retry
+
+2018-09-11 18:20:28,244 p=9331 u=ansible |  PLAY RECAP **********************************************************************************************************************************
+2018-09-11 18:20:28,244 p=9331 u=ansible |  ansible1.example.com       : ok=3    changed=0    unreachable=0    failed=1   
+2018-09-11 18:20:28,244 p=9331 u=ansible |  ansible2.example.com       : ok=3    changed=0    unreachable=0    failed=1   
+2018-09-11 18:29:14,461 p=9521 u=ansible |  ERROR! Syntax Error while loading YAML.
+  mapping values are not allowed in this context
+
+The error appears to have been in '/home/ansible/loops/handlers.yml': line 7, column 10, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+   - name: install httpd
+      yum: name=httpd
+         ^ here
+
+2018-09-11 18:30:51,211 p=9560 u=ansible |  playbook: handlers.yml
+2018-09-11 18:31:31,634 p=9573 u=ansible |  ansible-playbook 2.6.3
+  config file = /home/ansible/loops/ansible.cfg
+  configured module search path = [u'/home/ansible/.ansible/plugins/modules', u'/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python2.7/site-packages/ansible
+  executable location = /bin/ansible-playbook
+  python version = 2.7.5 (default, Apr 11 2018, 07:36:10) [GCC 4.8.5 20150623 (Red Hat 4.8.5-28)]
+2018-09-11 18:31:31,634 p=9573 u=ansible |  Using /home/ansible/loops/ansible.cfg as config file
+2018-09-11 18:31:31,635 p=9573 u=ansible |  setting up inventory plugins
+2018-09-11 18:31:31,651 p=9573 u=ansible |  Parsed /home/ansible/loops/inventory inventory source with ini plugin
+2018-09-11 18:31:31,784 p=9573 u=ansible |  Loading callback plugin default of type stdout, v2.0 from /usr/lib/python2.7/site-packages/ansible/plugins/callback/default.pyc
+2018-09-11 18:31:31,905 p=9573 u=ansible |  PLAYBOOK: handlers.yml **********************************************************************************************************************
+2018-09-11 18:31:31,906 p=9573 u=ansible |  1 plays in handlers.yml
+2018-09-11 18:31:31,931 p=9573 u=ansible |  PLAY [copy new index.html] ******************************************************************************************************************
+2018-09-11 18:31:31,947 p=9573 u=ansible |  TASK [Gathering Facts] **********************************************************************************************************************
+2018-09-11 18:31:31,947 p=9573 u=ansible |  task path: /home/ansible/loops/handlers.yml:2
+2018-09-11 18:31:33,971 p=9573 u=ansible |  Using module file /usr/lib/python2.7/site-packages/ansible/modules/system/setup.py
+2018-09-11 18:31:33,977 p=9573 u=ansible |  Using module file /usr/lib/python2.7/site-packages/ansible/modules/system/setup.py
+2018-09-11 18:31:34,251 p=9573 u=ansible |  Escalation succeeded
+2018-09-11 18:31:34,253 p=9573 u=ansible |  Escalation succeeded
+2018-09-11 18:31:35,049 p=9573 u=ansible |  ok: [ansible2.example.com]
+2018-09-11 18:31:35,113 p=9573 u=ansible |  ok: [ansible1.example.com]
+2018-09-11 18:31:35,114 p=9573 u=ansible |  META: ran handlers
+2018-09-11 18:31:35,146 p=9573 u=ansible |  TASK [install httpd] ************************************************************************************************************************
+2018-09-11 18:31:35,146 p=9573 u=ansible |  task path: /home/ansible/loops/handlers.yml:6
+2018-09-11 18:31:35,534 p=9573 u=ansible |  Using module file /usr/lib/python2.7/site-packages/ansible/modules/packaging/os/yum.py
+2018-09-11 18:31:35,538 p=9573 u=ansible |  Using module file /usr/lib/python2.7/site-packages/ansible/modules/packaging/os/yum.py
+2018-09-11 18:31:35,778 p=9573 u=ansible |  Escalation succeeded
+2018-09-11 18:31:35,786 p=9573 u=ansible |  Escalation succeeded
+2018-09-11 18:31:36,211 p=9573 u=ansible |  ok: [ansible2.example.com] => {
+    "changed": false, 
+    "invocation": {
+        "module_args": {
+            "allow_downgrade": false, 
+            "bugfix": false, 
+            "conf_file": null, 
+            "disable_gpg_check": false, 
+            "disable_plugin": [], 
+            "disablerepo": null, 
+            "enable_plugin": [], 
+            "enablerepo": null, 
+            "exclude": null, 
+            "install_repoquery": true, 
+            "installroot": "/", 
+            "list": null, 
+            "name": [
+                "httpd"
+            ], 
+            "security": false, 
+            "skip_broken": false, 
+            "state": "installed", 
+            "update_cache": false, 
+            "update_only": false, 
+            "validate_certs": true
+        }
+    }, 
+    "msg": "", 
+    "rc": 0, 
+    "results": [
+        "httpd-2.4.6-80.el7.centos.1.x86_64 providing httpd is already installed"
+    ]
+}
+2018-09-11 18:31:36,220 p=9573 u=ansible |  ok: [ansible1.example.com] => {
+    "changed": false, 
+    "invocation": {
+        "module_args": {
+            "allow_downgrade": false, 
+            "bugfix": false, 
+            "conf_file": null, 
+            "disable_gpg_check": false, 
+            "disable_plugin": [], 
+            "disablerepo": null, 
+            "enable_plugin": [], 
+            "enablerepo": null, 
+            "exclude": null, 
+            "install_repoquery": true, 
+            "installroot": "/", 
+            "list": null, 
+            "name": [
+                "httpd"
+            ], 
+            "security": false, 
+            "skip_broken": false, 
+            "state": "installed", 
+            "update_cache": false, 
+            "update_only": false, 
+            "validate_certs": true
+        }
+    }, 
+    "msg": "", 
+    "rc": 0, 
+    "results": [
+        "httpd-2.4.6-80.el7.centos.1.x86_64 providing httpd is already installed"
+    ]
+}
+2018-09-11 18:31:36,253 p=9573 u=ansible |  TASK [copy index.html] **********************************************************************************************************************
+2018-09-11 18:31:36,254 p=9573 u=ansible |  task path: /home/ansible/loops/handlers.yml:8
+2018-09-11 18:31:36,610 p=9573 u=ansible |  Using module file /usr/lib/python2.7/site-packages/ansible/modules/files/stat.py
+2018-09-11 18:31:36,614 p=9573 u=ansible |  Using module file /usr/lib/python2.7/site-packages/ansible/modules/files/stat.py
+2018-09-11 18:31:36,827 p=9573 u=ansible |  Escalation succeeded
+2018-09-11 18:31:36,844 p=9573 u=ansible |  Escalation succeeded
+2018-09-11 18:31:37,147 p=9573 u=ansible |  Using module file /usr/lib/python2.7/site-packages/ansible/modules/files/file.py
+2018-09-11 18:31:37,150 p=9573 u=ansible |  Using module file /usr/lib/python2.7/site-packages/ansible/modules/files/file.py
+2018-09-11 18:31:37,373 p=9573 u=ansible |  Escalation succeeded
+2018-09-11 18:31:37,387 p=9573 u=ansible |  Escalation succeeded
+2018-09-11 18:31:37,627 p=9573 u=ansible |  ok: [ansible2.example.com] => {
+    "changed": false, 
+    "checksum": "da39a3ee5e6b4b0d3255bfef95601890afd80709", 
+    "dest": "/var/www/html/index.html", 
+    "diff": {
+        "after": {
+            "path": "/var/www/html/index.html"
+        }, 
+        "before": {
+            "path": "/var/www/html/index.html"
+        }
+    }, 
+    "gid": 0, 
+    "group": "root", 
+    "invocation": {
+        "module_args": {
+            "_diff_peek": null, 
+            "_original_basename": "index.html", 
+            "attributes": null, 
+            "backup": null, 
+            "content": null, 
+            "delimiter": null, 
+            "dest": "/var/www/html/index.html", 
+            "directory_mode": null, 
+            "follow": true, 
+            "force": false, 
+            "group": null, 
+            "mode": null, 
+            "owner": null, 
+            "path": "/var/www/html/index.html", 
+            "recurse": false, 
+            "regexp": null, 
+            "remote_src": null, 
+            "selevel": null, 
+            "serole": null, 
+            "setype": null, 
+            "seuser": null, 
+            "src": null, 
+            "state": "file", 
+            "unsafe_writes": null
+        }
+    }, 
+    "mode": "0644", 
+    "owner": "root", 
+    "path": "/var/www/html/index.html", 
+    "secontext": "system_u:object_r:httpd_sys_content_t:s0", 
+    "size": 0, 
+    "state": "file", 
+    "uid": 0
+}
+2018-09-11 18:31:37,635 p=9573 u=ansible |  ok: [ansible1.example.com] => {
+    "changed": false, 
+    "checksum": "da39a3ee5e6b4b0d3255bfef95601890afd80709", 
+    "dest": "/var/www/html/index.html", 
+    "diff": {
+        "after": {
+            "path": "/var/www/html/index.html"
+        }, 
+        "before": {
+            "path": "/var/www/html/index.html"
+        }
+    }, 
+    "gid": 0, 
+    "group": "root", 
+    "invocation": {
+        "module_args": {
+            "_diff_peek": null, 
+            "_original_basename": "index.html", 
+            "attributes": null, 
+            "backup": null, 
+            "content": null, 
+            "delimiter": null, 
+            "dest": "/var/www/html/index.html", 
+            "directory_mode": null, 
+            "follow": true, 
+            "force": false, 
+            "group": null, 
+            "mode": null, 
+            "owner": null, 
+            "path": "/var/www/html/index.html", 
+            "recurse": false, 
+            "regexp": null, 
+            "remote_src": null, 
+            "selevel": null, 
+            "serole": null, 
+            "setype": null, 
+            "seuser": null, 
+            "src": null, 
+            "state": "file", 
+            "unsafe_writes": null
+        }
+    }, 
+    "mode": "0644", 
+    "owner": "root", 
+    "path": "/var/www/html/index.html", 
+    "secontext": "system_u:object_r:httpd_sys_content_t:s0", 
+    "size": 0, 
+    "state": "file", 
+    "uid": 0
+}
+2018-09-11 18:31:37,666 p=9573 u=ansible |  TASK [copy nothing] *************************************************************************************************************************
+2018-09-11 18:31:37,666 p=9573 u=ansible |  task path: /home/ansible/loops/handlers.yml:14
+2018-09-11 18:31:37,880 p=9573 u=ansible |  The full traceback is:
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/ansible/plugins/action/copy.py", line 442, in run
+    source = self._find_needle('files', source)
+  File "/usr/lib/python2.7/site-packages/ansible/plugins/action/__init__.py", line 1057, in _find_needle
+    return self._loader.path_dwim_relative_stack(path_stack, dirname, needle)
+  File "/usr/lib/python2.7/site-packages/ansible/parsing/dataloader.py", line 322, in path_dwim_relative_stack
+    raise AnsibleFileNotFound(file_name=source, paths=[to_text(p) for p in search])
+AnsibleFileNotFound: Could not find or access '/tmp/nothing' on the Ansible Controller.
+If you are using a module and expect the file to exist on the remote, see the remote_src option
+
+2018-09-11 18:31:37,880 p=9573 u=ansible |  fatal: [ansible1.example.com]: FAILED! => {
+    "changed": false, 
+    "msg": "Could not find or access '/tmp/nothing' on the Ansible Controller.\nIf you are using a module and expect the file to exist on the remote, see the remote_src option"
+}
+2018-09-11 18:31:37,917 p=9573 u=ansible |  The full traceback is:
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/ansible/plugins/action/copy.py", line 442, in run
+    source = self._find_needle('files', source)
+  File "/usr/lib/python2.7/site-packages/ansible/plugins/action/__init__.py", line 1057, in _find_needle
+    return self._loader.path_dwim_relative_stack(path_stack, dirname, needle)
+  File "/usr/lib/python2.7/site-packages/ansible/parsing/dataloader.py", line 322, in path_dwim_relative_stack
+    raise AnsibleFileNotFound(file_name=source, paths=[to_text(p) for p in search])
+AnsibleFileNotFound: Could not find or access '/tmp/nothing' on the Ansible Controller.
+If you are using a module and expect the file to exist on the remote, see the remote_src option
+
+2018-09-11 18:31:37,917 p=9573 u=ansible |  fatal: [ansible2.example.com]: FAILED! => {
+    "changed": false, 
+    "msg": "Could not find or access '/tmp/nothing' on the Ansible Controller.\nIf you are using a module and expect the file to exist on the remote, see the remote_src option"
+}
+2018-09-11 18:31:37,919 p=9573 u=ansible |  	to retry, use: --limit @/home/ansible/loops/handlers.retry
+
+2018-09-11 18:31:37,919 p=9573 u=ansible |  PLAY RECAP **********************************************************************************************************************************
+2018-09-11 18:31:37,919 p=9573 u=ansible |  ansible1.example.com       : ok=3    changed=0    unreachable=0    failed=1   
+2018-09-11 18:31:37,919 p=9573 u=ansible |  ansible2.example.com       : ok=3    changed=0    unreachable=0    failed=1   
+2018-09-11 18:32:01,171 p=9667 u=ansible |  PLAY [copy new index.html] ******************************************************************************************************************
+2018-09-11 18:32:01,185 p=9667 u=ansible |  TASK [Gathering Facts] **********************************************************************************************************************
+2018-09-11 18:32:02,631 p=9667 u=ansible |  ok: [ansible2.example.com]
+2018-09-11 18:32:02,701 p=9667 u=ansible |  ok: [ansible1.example.com]
+2018-09-11 18:32:02,731 p=9667 u=ansible |  TASK [install httpd] ************************************************************************************************************************
+2018-09-11 18:32:03,747 p=9667 u=ansible |  ok: [ansible2.example.com]
+2018-09-11 18:32:03,774 p=9667 u=ansible |  ok: [ansible1.example.com]
+2018-09-11 18:32:03,809 p=9667 u=ansible |  TASK [copy index.html] **********************************************************************************************************************
+2018-09-11 18:32:05,129 p=9667 u=ansible |  ok: [ansible2.example.com]
+2018-09-11 18:32:05,141 p=9667 u=ansible |  ok: [ansible1.example.com]
+2018-09-11 18:32:05,177 p=9667 u=ansible |  TASK [copy nothing] *************************************************************************************************************************
+2018-09-11 18:32:05,368 p=9667 u=ansible |  An exception occurred during task execution. To see the full traceback, use -vvv. The error was: If you are using a module and expect the file to exist on the remote, see the remote_src option
+2018-09-11 18:32:05,368 p=9667 u=ansible |  fatal: [ansible1.example.com]: FAILED! => {"changed": false, "msg": "Could not find or access '/tmp/nothing' on the Ansible Controller.\nIf you are using a module and expect the file to exist on the remote, see the remote_src option"}
+2018-09-11 18:32:05,392 p=9667 u=ansible |  An exception occurred during task execution. To see the full traceback, use -vvv. The error was: If you are using a module and expect the file to exist on the remote, see the remote_src option
+2018-09-11 18:32:05,393 p=9667 u=ansible |  fatal: [ansible2.example.com]: FAILED! => {"changed": false, "msg": "Could not find or access '/tmp/nothing' on the Ansible Controller.\nIf you are using a module and expect the file to exist on the remote, see the remote_src option"}
+2018-09-11 18:32:05,394 p=9667 u=ansible |  	to retry, use: --limit @/home/ansible/loops/handlers.retry
+
+2018-09-11 18:32:05,394 p=9667 u=ansible |  PLAY RECAP **********************************************************************************************************************************
+2018-09-11 18:32:05,395 p=9667 u=ansible |  ansible1.example.com       : ok=3    changed=0    unreachable=0    failed=1   
+2018-09-11 18:32:05,395 p=9667 u=ansible |  ansible2.example.com       : ok=3    changed=0    unreachable=0    failed=1   
+2018-09-11 18:32:49,643 p=9759 u=ansible |  PLAY [copy new index.html] ******************************************************************************************************************
+2018-09-11 18:33:01,369 p=9759 u=ansible |  Perform task: TASK: Gathering Facts (N)o/(y)es/(c)ontinue: **********************************************************************************
+2018-09-11 18:33:01,378 p=9759 u=ansible |  TASK [Gathering Facts] **********************************************************************************************************************
+2018-09-11 18:33:02,883 p=9759 u=ansible |  ok: [ansible2.example.com]
+2018-09-11 18:33:02,943 p=9759 u=ansible |  ok: [ansible1.example.com]
+2018-09-11 18:33:08,985 p=9759 u=ansible |  Perform task: TASK: install httpd (N)o/(y)es/(c)ontinue: ************************************************************************************
+2018-09-11 18:33:09,017 p=9759 u=ansible |  TASK [install httpd] ************************************************************************************************************************
+2018-09-11 18:33:10,063 p=9759 u=ansible |  ok: [ansible1.example.com]
+2018-09-11 18:33:10,067 p=9759 u=ansible |  ok: [ansible2.example.com]
+2018-09-11 18:33:13,720 p=9759 u=ansible |  Perform task: TASK: copy index.html (N)o/(y)es/(c)ontinue: **********************************************************************************
+2018-09-11 18:33:13,753 p=9759 u=ansible |  TASK [copy index.html] **********************************************************************************************************************
+2018-09-11 18:33:15,070 p=9759 u=ansible |  ok: [ansible1.example.com]
+2018-09-11 18:33:15,079 p=9759 u=ansible |  ok: [ansible2.example.com]
+2018-09-11 18:33:15,115 p=9759 u=ansible |  TASK [copy nothing] *************************************************************************************************************************
+2018-09-11 18:33:15,306 p=9759 u=ansible |  An exception occurred during task execution. To see the full traceback, use -vvv. The error was: If you are using a module and expect the file to exist on the remote, see the remote_src option
+2018-09-11 18:33:15,307 p=9759 u=ansible |  fatal: [ansible1.example.com]: FAILED! => {"changed": false, "msg": "Could not find or access '/tmp/nothing' on the Ansible Controller.\nIf you are using a module and expect the file to exist on the remote, see the remote_src option"}
+2018-09-11 18:33:15,340 p=9759 u=ansible |  An exception occurred during task execution. To see the full traceback, use -vvv. The error was: If you are using a module and expect the file to exist on the remote, see the remote_src option
+2018-09-11 18:33:15,340 p=9759 u=ansible |  fatal: [ansible2.example.com]: FAILED! => {"changed": false, "msg": "Could not find or access '/tmp/nothing' on the Ansible Controller.\nIf you are using a module and expect the file to exist on the remote, see the remote_src option"}
+2018-09-11 18:33:15,342 p=9759 u=ansible |  	to retry, use: --limit @/home/ansible/loops/handlers.retry
+
+2018-09-11 18:33:15,342 p=9759 u=ansible |  PLAY RECAP **********************************************************************************************************************************
+2018-09-11 18:33:15,343 p=9759 u=ansible |  ansible1.example.com       : ok=3    changed=0    unreachable=0    failed=1   
+2018-09-11 18:33:15,343 p=9759 u=ansible |  ansible2.example.com       : ok=3    changed=0    unreachable=0    failed=1   
+2018-09-11 19:22:34,203 p=11169 u=ansible |  ERROR! Syntax Error while loading YAML.
+  did not find expected key
+
+The error appears to have been in '/home/ansible/loops/copytxt.yml': line 11, column 10, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+    with_items:
+      - "{{ with_output.stdout_lines }}"
+         ^ here
+We could be wrong, but this one looks like it might be an issue with
+missing quotes.  Always quote template expression brackets when they
+start a value. For instance:
+
+    with_items:
+      - {{ foo }}
+
+Should be written as:
+
+    with_items:
+      - "{{ foo }}"
+
+2018-09-11 19:23:07,857 p=11194 u=ansible |  PLAY [all] **********************************************************************************
+2018-09-11 19:23:07,874 p=11194 u=ansible |  TASK [Gathering Facts] **********************************************************************
+2018-09-11 19:23:09,674 p=11194 u=ansible |  ok: [ubuntu.example.com]
+2018-09-11 19:23:10,148 p=11194 u=ansible |  ok: [ansible2.example.com]
+2018-09-11 19:23:10,165 p=11194 u=ansible |  ok: [ansible1.example.com]
+2018-09-11 19:23:10,203 p=11194 u=ansible |  TASK [use with_output in registered variables] **********************************************
+2018-09-11 19:23:10,926 p=11194 u=ansible |  fatal: [ubuntu.example.com]: FAILED! => {"changed": true, "cmd": "find . *.yml", "delta": "0:00:00.006480", "end": "2018-09-11 23:23:10.887570", "msg": "non-zero return code", "rc": 1, "start": "2018-09-11 23:23:10.881090", "stderr": "find: ‘*.yml’: No such file or directory", "stderr_lines": ["find: ‘*.yml’: No such file or directory"], "stdout": ".\n./.bash_logout\n./.ansible\n./.ansible/tmp\n./.ansible/tmp/ansible-tmp-1536700536.56-237938190857924\n./.ansible/tmp/ansible-tmp-1536700136.67-245040585768375\n./.ansible/tmp/ansible-tmp-1536708190.43-131986731032051\n./.ansible/tmp/ansible-tmp-1536708190.43-131986731032051/command.py\n./.ansible/tmp/ansible-tmp-1536700436.65-88173954894659\n./.ansible/tmp/ansible-tmp-1536700596.51-82479805023395\n./.ansible/tmp/ansible-tmp-1536700659.95-81012090257157\n./.ansible/tmp/ansible-tmp-1536700659.95-81012090257157/source\n./.ansible/tmp/ansible-tmp-1536700659.95-81012090257157/copy.py\n./.ansible/tmp/ansible-tmp-1536700659.95-81012090257157/stat.py\n./.ansible/tmp/ansible-tmp-1536700252.46-84792165623521\n./.bashrc\n./.ssh\n./.ssh/authorized_keys\n./.cache\n./.cache/motd.legal-displayed\n./.profile\n./.gnupg\n./.gnupg/private-keys-v1.d", "stdout_lines": [".", "./.bash_logout", "./.ansible", "./.ansible/tmp", "./.ansible/tmp/ansible-tmp-1536700536.56-237938190857924", "./.ansible/tmp/ansible-tmp-1536700136.67-245040585768375", "./.ansible/tmp/ansible-tmp-1536708190.43-131986731032051", "./.ansible/tmp/ansible-tmp-1536708190.43-131986731032051/command.py", "./.ansible/tmp/ansible-tmp-1536700436.65-88173954894659", "./.ansible/tmp/ansible-tmp-1536700596.51-82479805023395", "./.ansible/tmp/ansible-tmp-1536700659.95-81012090257157", "./.ansible/tmp/ansible-tmp-1536700659.95-81012090257157/source", "./.ansible/tmp/ansible-tmp-1536700659.95-81012090257157/copy.py", "./.ansible/tmp/ansible-tmp-1536700659.95-81012090257157/stat.py", "./.ansible/tmp/ansible-tmp-1536700252.46-84792165623521", "./.bashrc", "./.ssh", "./.ssh/authorized_keys", "./.cache", "./.cache/motd.legal-displayed", "./.profile", "./.gnupg", "./.gnupg/private-keys-v1.d"]}
+2018-09-11 19:23:11,106 p=11194 u=ansible |  fatal: [ansible2.example.com]: FAILED! => {"changed": true, "cmd": "find . *.yml", "delta": "0:00:00.010633", "end": "2018-09-11 19:23:11.046011", "msg": "non-zero return code", "rc": 1, "start": "2018-09-11 19:23:11.035378", "stderr": "find: ‘*.yml’: No such file or directory", "stderr_lines": ["find: ‘*.yml’: No such file or directory"], "stdout": ".\n./.mozilla\n./.mozilla/extensions\n./.mozilla/plugins\n./.bash_logout\n./.bash_profile\n./.bashrc\n./.ssh\n./.ssh/authorized_keys\n./.ansible\n./.ansible/tmp\n./.ansible/tmp/ansible-tmp-1536700136.62-236334413739946\n./.ansible/tmp/ansible-tmp-1536700252.39-13949695971993\n./.ansible/tmp/ansible-tmp-1536700436.6-8456754092900\n./.ansible/tmp/ansible-tmp-1536700536.51-95795159456295\n./.ansible/tmp/ansible-tmp-1536700596.45-37561660639792\n./.ansible/tmp/ansible-tmp-1536702215.34-62943756785896\n./.ansible/tmp/ansible-tmp-1536702769.81-116302500692633\n./.ansible/tmp/ansible-tmp-1536702806.75-78712079295610\n./.ansible/tmp/ansible-tmp-1536704428.11-46534659917721\n./.ansible/tmp/ansible-tmp-1536705097.79-103935226065741\n./.ansible/tmp/ansible-tmp-1536705125.3-220137378912515\n./.ansible/tmp/ansible-tmp-1536705195.24-34298898521712\n./.ansible/tmp/ansible-tmp-1536708190.36-202094209830496\n./.ansible/tmp/ansible-tmp-1536708190.36-202094209830496/command.py\n./.cache\n./.cache/abrt\n./.cache/abrt/lastnotification\n./.config\n./.config/abrt\n./.bash_history", "stdout_lines": [".", "./.mozilla", "./.mozilla/extensions", "./.mozilla/plugins", "./.bash_logout", "./.bash_profile", "./.bashrc", "./.ssh", "./.ssh/authorized_keys", "./.ansible", "./.ansible/tmp", "./.ansible/tmp/ansible-tmp-1536700136.62-236334413739946", "./.ansible/tmp/ansible-tmp-1536700252.39-13949695971993", "./.ansible/tmp/ansible-tmp-1536700436.6-8456754092900", "./.ansible/tmp/ansible-tmp-1536700536.51-95795159456295", "./.ansible/tmp/ansible-tmp-1536700596.45-37561660639792", "./.ansible/tmp/ansible-tmp-1536702215.34-62943756785896", "./.ansible/tmp/ansible-tmp-1536702769.81-116302500692633", "./.ansible/tmp/ansible-tmp-1536702806.75-78712079295610", "./.ansible/tmp/ansible-tmp-1536704428.11-46534659917721", "./.ansible/tmp/ansible-tmp-1536705097.79-103935226065741", "./.ansible/tmp/ansible-tmp-1536705125.3-220137378912515", "./.ansible/tmp/ansible-tmp-1536705195.24-34298898521712", "./.ansible/tmp/ansible-tmp-1536708190.36-202094209830496", "./.ansible/tmp/ansible-tmp-1536708190.36-202094209830496/command.py", "./.cache", "./.cache/abrt", "./.cache/abrt/lastnotification", "./.config", "./.config/abrt", "./.bash_history"]}
+2018-09-11 19:23:11,130 p=11194 u=ansible |  fatal: [ansible1.example.com]: FAILED! => {"changed": true, "cmd": "find . *.yml", "delta": "0:00:00.031944", "end": "2018-09-11 19:23:11.062931", "msg": "non-zero return code", "rc": 1, "start": "2018-09-11 19:23:11.030987", "stderr": "find: ‘*.yml’: No such file or directory", "stderr_lines": ["find: ‘*.yml’: No such file or directory"], "stdout": ".\n./.mozilla\n./.mozilla/extensions\n./.mozilla/plugins\n./.bash_logout\n./.bash_profile\n./.bashrc\n./.ssh\n./.ssh/authorized_keys\n./.cache\n./.cache/abrt\n./.cache/abrt/lastnotification\n./.cache/abrt/applet_dirlist\n./.cache/gdm\n./.cache/gdm/session.log.old\n./.cache/gdm/session.log\n./.cache/imsettings\n./.cache/imsettings/log.bak\n./.cache/imsettings/log\n./.cache/libgweather\n./.cache/evolution\n./.cache/evolution/addressbook\n./.cache/evolution/addressbook/trash\n./.cache/evolution/calendar\n./.cache/evolution/calendar/trash\n./.cache/evolution/mail\n./.cache/evolution/mail/trash\n./.cache/evolution/memos\n./.cache/evolution/memos/trash\n./.cache/evolution/sources\n./.cache/evolution/sources/trash\n./.cache/evolution/tasks\n./.cache/evolution/tasks/trash\n./.cache/gnome-shell\n./.cache/gnome-shell/update-check-3.25.4\n./.cache/tracker\n./.cache/tracker/db-version.txt\n./.cache/tracker/meta.db\n./.cache/tracker/db-locale.txt\n./.cache/tracker/meta.db-wal\n./.cache/tracker/meta.db-shm\n./.cache/tracker/ontologies.gvdb\n./.cache/tracker/parser-sha1.txt\n./.cache/tracker/locale-for-miner-user-guides.txt\n./.cache/tracker/locale-for-miner-apps.txt\n./.cache/tracker/last-crawl.txt\n./.cache/tracker/first-index.txt\n./.cache/event-sound-cache.tdb.55dbe830aef249baaa7fee183ba9f3f0.x86_64-redhat-linux-gnu\n./.cache/gstreamer-1.0\n./.cache/gstreamer-1.0/registry.x86_64.bin\n./.cache/gnome-software\n./.cache/gnome-software/3.22\n./.cache/gnome-software/3.22/ratings\n./.cache/gnome-software/3.22/ratings/odrs.json\n./.cache/gnome-software/3.22/extensions\n./.cache/gnome-software/3.22/extensions/gnome.json\n./.cache/media-art\n./.cache/yelp\n./.cache/yelp/WebKitCache\n./.cache/yelp/WebKitCache/Version 11\n./.cache/yelp/WebKitCache/Version 11/salt\n./.cache/yelp/WebKitCache/Version 11/Blobs\n./.config\n./.config/abrt\n./.config/imsettings\n./.config/gnome-session\n./.config/gnome-session/saved-session\n./.config/pulse\n./.config/pulse/55dbe830aef249baaa7fee183ba9f3f0-device-volumes.tdb\n./.config/pulse/55dbe830aef249baaa7fee183ba9f3f0-stream-volumes.tdb\n./.config/pulse/55dbe830aef249baaa7fee183ba9f3f0-card-database.tdb\n./.config/pulse/cookie\n./.config/pulse/55dbe830aef249baaa7fee183ba9f3f0-default-sink\n./.config/pulse/55dbe830aef249baaa7fee183ba9f3f0-default-source\n./.config/ibus\n./.config/ibus/bus\n./.config/ibus/bus/55dbe830aef249baaa7fee183ba9f3f0-unix-0\n./.config/dconf\n./.config/dconf/user\n./.config/evolution\n./.config/evolution/sources\n./.config/evolution/sources/system-proxy.source\n./.config/goa-1.0\n./.config/gconf\n./.config/user-dirs.dirs\n./.config/user-dirs.locale\n./.config/gtk-3.0\n./.config/gtk-3.0/bookmarks\n./.config/nautilus\n./.config/nautilus/desktop-metadata\n./.config/gnome-initial-setup-done\n./.config/yelp\n./.config/yelp/yelp.cfg\n./.bash_history\n./.ansible\n./.ansible/tmp\n./.ansible/tmp/ansible-tmp-1536700136.53-260467698137339\n./.ansible/tmp/ansible-tmp-1536700252.3-256822288272616\n./.ansible/tmp/ansible-tmp-1536700436.49-110642806886275\n./.ansible/tmp/ansible-tmp-1536700536.42-254000100083938\n./.ansible/tmp/ansible-tmp-1536700596.36-25296181726371\n./.ansible/tmp/ansible-tmp-1536700659.81-47637215886302\n./.ansible/tmp/ansible-tmp-1536700659.81-47637215886302/stat.py\n./.ansible/tmp/ansible-tmp-1536700659.81-47637215886302/source\n./.ansible/tmp/ansible-tmp-1536700659.81-47637215886302/copy.py\n./.ansible/tmp/ansible-tmp-1536702215.28-167907068697674\n./.ansible/tmp/ansible-tmp-1536702769.75-157394755865679\n./.ansible/tmp/ansible-tmp-1536702806.7-169982502103238\n./.ansible/tmp/ansible-tmp-1536704428.05-41804435359543\n./.ansible/tmp/ansible-tmp-1536705097.74-60977765329649\n./.ansible/tmp/ansible-tmp-1536705125.25-232745980388721\n./.ansible/tmp/ansible-tmp-1536705195.19-259481506621972\n./.ansible/tmp/ansible-tmp-1536708190.29-87873850547494\n./.ansible/tmp/ansible-tmp-1536708190.29-87873850547494/command.py\n./.dbus\n./.dbus/session-bus\n./.dbus/session-bus/55dbe830aef249baaa7fee183ba9f3f0-0\n./.ICEauthority\n./.local\n./.local/share\n./.local/share/keyrings\n./.local/share/keyrings/login.keyring\n./.local/share/keyrings/user.keystore\n./.local/share/gnome-shell\n./.local/share/gnome-shell/notifications\n./.local/share/telepathy\n./.local/share/telepathy/mission-control\n./.local/share/telepathy/mission-control/accounts.cfg\n./.local/share/telepathy/mission-control/accounts-goa.cfg\n./.local/share/evolution\n./.local/share/evolution/addressbook\n./.local/share/evolution/addressbook/trash\n./.local/share/evolution/addressbook/system\n./.local/share/evolution/addressbook/system/contacts.db\n./.local/share/evolution/addressbook/system/photos\n./.local/share/evolution/calendar\n./.local/share/evolution/calendar/trash\n./.local/share/evolution/calendar/system\n./.local/share/evolution/calendar/system/calendar.ics\n./.local/share/evolution/mail\n./.local/share/evolution/mail/trash\n./.local/share/evolution/memos\n./.local/share/evolution/memos/trash\n./.local/share/evolution/tasks\n./.local/share/evolution/tasks/trash\n./.local/share/gsettings-data-convert\n./.local/share/sounds\n./.local/share/applications\n./.local/share/icc\n./.local/share/flatpak\n./.local/share/flatpak/db\n./.local/share/flatpak/db/gnome\n./.local/share/flatpak/system-cache\n./.local/share/gnome-settings-daemon\n./.local/share/gnome-settings-daemon/input-sources-converted\n./.local/share/tracker\n./.local/share/tracker/data\n./.local/share/tracker/data/.meta.isrunning\n./.local/share/tracker/data/tracker-store.journal\n./.local/share/tracker/data/tracker-store.ontology.journal\n./.local/share/nautilus\n./.local/share/nautilus/scripts\n./.local/share/gvfs-metadata\n./.local/share/gvfs-metadata/home-79bb37b1.log\n./.local/share/gvfs-metadata/home\n./.local/share/gvfs-metadata/root\n./.local/share/gvfs-metadata/root-b73b54c5.log\n./.local/share/webkitgtk\n./.local/share/webkitgtk/localstorage\n./.local/share/app-info\n./.local/share/app-info/xmls\n./.local/share/app-info/xmls/extensions-web.xml\n./.esd_auth\n./Desktop\n./Downloads\n./Templates\n./Public\n./Documents\n./Music\n./Pictures\n./Videos", "stdout_lines": [".", "./.mozilla", "./.mozilla/extensions", "./.mozilla/plugins", "./.bash_logout", "./.bash_profile", "./.bashrc", "./.ssh", "./.ssh/authorized_keys", "./.cache", "./.cache/abrt", "./.cache/abrt/lastnotification", "./.cache/abrt/applet_dirlist", "./.cache/gdm", "./.cache/gdm/session.log.old", "./.cache/gdm/session.log", "./.cache/imsettings", "./.cache/imsettings/log.bak", "./.cache/imsettings/log", "./.cache/libgweather", "./.cache/evolution", "./.cache/evolution/addressbook", "./.cache/evolution/addressbook/trash", "./.cache/evolution/calendar", "./.cache/evolution/calendar/trash", "./.cache/evolution/mail", "./.cache/evolution/mail/trash", "./.cache/evolution/memos", "./.cache/evolution/memos/trash", "./.cache/evolution/sources", "./.cache/evolution/sources/trash", "./.cache/evolution/tasks", "./.cache/evolution/tasks/trash", "./.cache/gnome-shell", "./.cache/gnome-shell/update-check-3.25.4", "./.cache/tracker", "./.cache/tracker/db-version.txt", "./.cache/tracker/meta.db", "./.cache/tracker/db-locale.txt", "./.cache/tracker/meta.db-wal", "./.cache/tracker/meta.db-shm", "./.cache/tracker/ontologies.gvdb", "./.cache/tracker/parser-sha1.txt", "./.cache/tracker/locale-for-miner-user-guides.txt", "./.cache/tracker/locale-for-miner-apps.txt", "./.cache/tracker/last-crawl.txt", "./.cache/tracker/first-index.txt", "./.cache/event-sound-cache.tdb.55dbe830aef249baaa7fee183ba9f3f0.x86_64-redhat-linux-gnu", "./.cache/gstreamer-1.0", "./.cache/gstreamer-1.0/registry.x86_64.bin", "./.cache/gnome-software", "./.cache/gnome-software/3.22", "./.cache/gnome-software/3.22/ratings", "./.cache/gnome-software/3.22/ratings/odrs.json", "./.cache/gnome-software/3.22/extensions", "./.cache/gnome-software/3.22/extensions/gnome.json", "./.cache/media-art", "./.cache/yelp", "./.cache/yelp/WebKitCache", "./.cache/yelp/WebKitCache/Version 11", "./.cache/yelp/WebKitCache/Version 11/salt", "./.cache/yelp/WebKitCache/Version 11/Blobs", "./.config", "./.config/abrt", "./.config/imsettings", "./.config/gnome-session", "./.config/gnome-session/saved-session", "./.config/pulse", "./.config/pulse/55dbe830aef249baaa7fee183ba9f3f0-device-volumes.tdb", "./.config/pulse/55dbe830aef249baaa7fee183ba9f3f0-stream-volumes.tdb", "./.config/pulse/55dbe830aef249baaa7fee183ba9f3f0-card-database.tdb", "./.config/pulse/cookie", "./.config/pulse/55dbe830aef249baaa7fee183ba9f3f0-default-sink", "./.config/pulse/55dbe830aef249baaa7fee183ba9f3f0-default-source", "./.config/ibus", "./.config/ibus/bus", "./.config/ibus/bus/55dbe830aef249baaa7fee183ba9f3f0-unix-0", "./.config/dconf", "./.config/dconf/user", "./.config/evolution", "./.config/evolution/sources", "./.config/evolution/sources/system-proxy.source", "./.config/goa-1.0", "./.config/gconf", "./.config/user-dirs.dirs", "./.config/user-dirs.locale", "./.config/gtk-3.0", "./.config/gtk-3.0/bookmarks", "./.config/nautilus", "./.config/nautilus/desktop-metadata", "./.config/gnome-initial-setup-done", "./.config/yelp", "./.config/yelp/yelp.cfg", "./.bash_history", "./.ansible", "./.ansible/tmp", "./.ansible/tmp/ansible-tmp-1536700136.53-260467698137339", "./.ansible/tmp/ansible-tmp-1536700252.3-256822288272616", "./.ansible/tmp/ansible-tmp-1536700436.49-110642806886275", "./.ansible/tmp/ansible-tmp-1536700536.42-254000100083938", "./.ansible/tmp/ansible-tmp-1536700596.36-25296181726371", "./.ansible/tmp/ansible-tmp-1536700659.81-47637215886302", "./.ansible/tmp/ansible-tmp-1536700659.81-47637215886302/stat.py", "./.ansible/tmp/ansible-tmp-1536700659.81-47637215886302/source", "./.ansible/tmp/ansible-tmp-1536700659.81-47637215886302/copy.py", "./.ansible/tmp/ansible-tmp-1536702215.28-167907068697674", "./.ansible/tmp/ansible-tmp-1536702769.75-157394755865679", "./.ansible/tmp/ansible-tmp-1536702806.7-169982502103238", "./.ansible/tmp/ansible-tmp-1536704428.05-41804435359543", "./.ansible/tmp/ansible-tmp-1536705097.74-60977765329649", "./.ansible/tmp/ansible-tmp-1536705125.25-232745980388721", "./.ansible/tmp/ansible-tmp-1536705195.19-259481506621972", "./.ansible/tmp/ansible-tmp-1536708190.29-87873850547494", "./.ansible/tmp/ansible-tmp-1536708190.29-87873850547494/command.py", "./.dbus", "./.dbus/session-bus", "./.dbus/session-bus/55dbe830aef249baaa7fee183ba9f3f0-0", "./.ICEauthority", "./.local", "./.local/share", "./.local/share/keyrings", "./.local/share/keyrings/login.keyring", "./.local/share/keyrings/user.keystore", "./.local/share/gnome-shell", "./.local/share/gnome-shell/notifications", "./.local/share/telepathy", "./.local/share/telepathy/mission-control", "./.local/share/telepathy/mission-control/accounts.cfg", "./.local/share/telepathy/mission-control/accounts-goa.cfg", "./.local/share/evolution", "./.local/share/evolution/addressbook", "./.local/share/evolution/addressbook/trash", "./.local/share/evolution/addressbook/system", "./.local/share/evolution/addressbook/system/contacts.db", "./.local/share/evolution/addressbook/system/photos", "./.local/share/evolution/calendar", "./.local/share/evolution/calendar/trash", "./.local/share/evolution/calendar/system", "./.local/share/evolution/calendar/system/calendar.ics", "./.local/share/evolution/mail", "./.local/share/evolution/mail/trash", "./.local/share/evolution/memos", "./.local/share/evolution/memos/trash", "./.local/share/evolution/tasks", "./.local/share/evolution/tasks/trash", "./.local/share/gsettings-data-convert", "./.local/share/sounds", "./.local/share/applications", "./.local/share/icc", "./.local/share/flatpak", "./.local/share/flatpak/db", "./.local/share/flatpak/db/gnome", "./.local/share/flatpak/system-cache", "./.local/share/gnome-settings-daemon", "./.local/share/gnome-settings-daemon/input-sources-converted", "./.local/share/tracker", "./.local/share/tracker/data", "./.local/share/tracker/data/.meta.isrunning", "./.local/share/tracker/data/tracker-store.journal", "./.local/share/tracker/data/tracker-store.ontology.journal", "./.local/share/nautilus", "./.local/share/nautilus/scripts", "./.local/share/gvfs-metadata", "./.local/share/gvfs-metadata/home-79bb37b1.log", "./.local/share/gvfs-metadata/home", "./.local/share/gvfs-metadata/root", "./.local/share/gvfs-metadata/root-b73b54c5.log", "./.local/share/webkitgtk", "./.local/share/webkitgtk/localstorage", "./.local/share/app-info", "./.local/share/app-info/xmls", "./.local/share/app-info/xmls/extensions-web.xml", "./.esd_auth", "./Desktop", "./Downloads", "./Templates", "./Public", "./Documents", "./Music", "./Pictures", "./Videos"]}
+2018-09-11 19:23:11,133 p=11194 u=ansible |  	to retry, use: --limit @/home/ansible/loops/copytxt.retry
+
+2018-09-11 19:23:11,133 p=11194 u=ansible |  PLAY RECAP **********************************************************************************
+2018-09-11 19:23:11,133 p=11194 u=ansible |  ansible1.example.com       : ok=1    changed=0    unreachable=0    failed=1   
+2018-09-11 19:23:11,133 p=11194 u=ansible |  ansible2.example.com       : ok=1    changed=0    unreachable=0    failed=1   
+2018-09-11 19:23:11,133 p=11194 u=ansible |  ubuntu.example.com         : ok=1    changed=0    unreachable=0    failed=1   
+2018-09-11 19:25:46,557 p=11360 u=ansible |  PLAY [registered variables demo 1] **********************************************************
+2018-09-11 19:25:46,574 p=11360 u=ansible |  TASK [Gathering Facts] **********************************************************************
+2018-09-11 19:25:48,431 p=11360 u=ansible |  ok: [ubuntu.example.com]
+2018-09-11 19:25:48,927 p=11360 u=ansible |  ok: [ansible2.example.com]
+2018-09-11 19:25:48,948 p=11360 u=ansible |  ok: [ansible1.example.com]
+2018-09-11 19:25:48,988 p=11360 u=ansible |  TASK [capture output of the who command] ****************************************************
+2018-09-11 19:25:49,753 p=11360 u=ansible |  changed: [ubuntu.example.com]
+2018-09-11 19:25:49,943 p=11360 u=ansible |  changed: [ansible2.example.com]
+2018-09-11 19:25:49,947 p=11360 u=ansible |  changed: [ansible1.example.com]
+2018-09-11 19:25:49,979 p=11360 u=ansible |  TASK [shell] ********************************************************************************
+2018-09-11 19:25:50,591 p=11360 u=ansible |  changed: [ubuntu.example.com]
+2018-09-11 19:25:50,686 p=11360 u=ansible |  changed: [ansible1.example.com]
+2018-09-11 19:25:50,745 p=11360 u=ansible |  changed: [ansible2.example.com]
+2018-09-11 19:25:50,747 p=11360 u=ansible |  PLAY RECAP **********************************************************************************
+2018-09-11 19:25:50,747 p=11360 u=ansible |  ansible1.example.com       : ok=3    changed=2    unreachable=0    failed=0   
+2018-09-11 19:25:50,747 p=11360 u=ansible |  ansible2.example.com       : ok=3    changed=2    unreachable=0    failed=0   
+2018-09-11 19:25:50,747 p=11360 u=ansible |  ubuntu.example.com         : ok=3    changed=2    unreachable=0    failed=0   
+2018-09-11 19:26:24,155 p=11461 u=ansible |  Using /home/ansible/loops/ansible.cfg as config file
+2018-09-11 19:26:24,497 p=11461 u=ansible |  PLAY [registered variables demo 1] **********************************************************
+2018-09-11 19:26:24,515 p=11461 u=ansible |  TASK [Gathering Facts] **********************************************************************
+2018-09-11 19:26:25,737 p=11461 u=ansible |  ok: [ubuntu.example.com]
+2018-09-11 19:26:26,302 p=11461 u=ansible |  ok: [ansible2.example.com]
+2018-09-11 19:26:26,321 p=11461 u=ansible |  ok: [ansible1.example.com]
+2018-09-11 19:26:26,356 p=11461 u=ansible |  TASK [capture output of the who command] ****************************************************
+2018-09-11 19:26:27,105 p=11461 u=ansible |  changed: [ubuntu.example.com] => {"changed": true, "cmd": ["who"], "delta": "0:00:00.002526", "end": "2018-09-11 23:26:27.056523", "rc": 0, "start": "2018-09-11 23:26:27.053997", "stderr": "", "stderr_lines": [], "stdout": "ansible  pts/0        2018-09-11 23:26 (192.168.4.80)", "stdout_lines": ["ansible  pts/0        2018-09-11 23:26 (192.168.4.80)"]}
+2018-09-11 19:26:27,348 p=11461 u=ansible |  changed: [ansible2.example.com] => {"changed": true, "cmd": ["who"], "delta": "0:00:00.007712", "end": "2018-09-11 19:26:27.260780", "rc": 0, "start": "2018-09-11 19:26:27.253068", "stderr": "", "stderr_lines": [], "stdout": "ansible  pts/0        2018-09-11 19:26 (192.168.4.80)", "stdout_lines": ["ansible  pts/0        2018-09-11 19:26 (192.168.4.80)"]}
+2018-09-11 19:26:27,355 p=11461 u=ansible |  changed: [ansible1.example.com] => {"changed": true, "cmd": ["who"], "delta": "0:00:00.007640", "end": "2018-09-11 19:26:27.263073", "rc": 0, "start": "2018-09-11 19:26:27.255433", "stderr": "", "stderr_lines": [], "stdout": "ansible  :0           2018-09-11 16:11 (:0)\nansible  pts/0        2018-09-11 16:11 (:0)\nansible  pts/1        2018-09-11 19:26 (192.168.4.80)", "stdout_lines": ["ansible  :0           2018-09-11 16:11 (:0)", "ansible  pts/0        2018-09-11 16:11 (:0)", "ansible  pts/1        2018-09-11 19:26 (192.168.4.80)"]}
+2018-09-11 19:26:27,390 p=11461 u=ansible |  TASK [shell] ********************************************************************************
+2018-09-11 19:26:28,020 p=11461 u=ansible |  changed: [ubuntu.example.com] => {"changed": true, "cmd": "echo \"user ansible is logged in\"", "delta": "0:00:00.002120", "end": "2018-09-11 23:26:27.967915", "rc": 0, "start": "2018-09-11 23:26:27.965795", "stderr": "", "stderr_lines": [], "stdout": "user ansible is logged in", "stdout_lines": ["user ansible is logged in"]}
+2018-09-11 19:26:28,176 p=11461 u=ansible |  changed: [ansible1.example.com] => {"changed": true, "cmd": "echo \"user ansible is logged in\"", "delta": "0:00:00.005934", "end": "2018-09-11 19:26:28.095383", "rc": 0, "start": "2018-09-11 19:26:28.089449", "stderr": "", "stderr_lines": [], "stdout": "user ansible is logged in", "stdout_lines": ["user ansible is logged in"]}
+2018-09-11 19:26:28,203 p=11461 u=ansible |  changed: [ansible2.example.com] => {"changed": true, "cmd": "echo \"user ansible is logged in\"", "delta": "0:00:00.005601", "end": "2018-09-11 19:26:28.129007", "rc": 0, "start": "2018-09-11 19:26:28.123406", "stderr": "", "stderr_lines": [], "stdout": "user ansible is logged in", "stdout_lines": ["user ansible is logged in"]}
+2018-09-11 19:26:28,207 p=11461 u=ansible |  PLAY RECAP **********************************************************************************
+2018-09-11 19:26:28,207 p=11461 u=ansible |  ansible1.example.com       : ok=3    changed=2    unreachable=0    failed=0   
+2018-09-11 19:26:28,207 p=11461 u=ansible |  ansible2.example.com       : ok=3    changed=2    unreachable=0    failed=0   
+2018-09-11 19:26:28,207 p=11461 u=ansible |  ubuntu.example.com         : ok=3    changed=2    unreachable=0    failed=0   
+2018-09-11 19:29:10,588 p=11601 u=ansible |  PLAY [all] **********************************************************************************
+2018-09-11 19:29:10,606 p=11601 u=ansible |  TASK [Gathering Facts] **********************************************************************
+2018-09-11 19:29:12,452 p=11601 u=ansible |  ok: [ubuntu.example.com]
+2018-09-11 19:29:12,962 p=11601 u=ansible |  ok: [ansible2.example.com]
+2018-09-11 19:29:13,020 p=11601 u=ansible |  ok: [ansible1.example.com]
+2018-09-11 19:29:13,052 p=11601 u=ansible |  TASK [use with_output in registered variables] **********************************************
+2018-09-11 19:29:13,808 p=11601 u=ansible |  fatal: [ubuntu.example.com]: FAILED! => {"changed": true, "cmd": "find . \"*.yml\"", "delta": "0:00:00.003609", "end": "2018-09-11 23:29:13.759348", "msg": "non-zero return code", "rc": 1, "start": "2018-09-11 23:29:13.755739", "stderr": "find: ‘*.yml’: No such file or directory", "stderr_lines": ["find: ‘*.yml’: No such file or directory"], "stdout": ".\n./.bash_logout\n./.ansible\n./.ansible/tmp\n./.ansible/tmp/ansible-tmp-1536700536.56-237938190857924\n./.ansible/tmp/ansible-tmp-1536700136.67-245040585768375\n./.ansible/tmp/ansible-tmp-1536700436.65-88173954894659\n./.ansible/tmp/ansible-tmp-1536700596.51-82479805023395\n./.ansible/tmp/ansible-tmp-1536708553.31-183565561127731\n./.ansible/tmp/ansible-tmp-1536708553.31-183565561127731/command.py\n./.ansible/tmp/ansible-tmp-1536700659.95-81012090257157\n./.ansible/tmp/ansible-tmp-1536700659.95-81012090257157/source\n./.ansible/tmp/ansible-tmp-1536700659.95-81012090257157/copy.py\n./.ansible/tmp/ansible-tmp-1536700659.95-81012090257157/stat.py\n./.ansible/tmp/ansible-tmp-1536700252.46-84792165623521\n./.bashrc\n./.ssh\n./.ssh/authorized_keys\n./.cache\n./.cache/motd.legal-displayed\n./.profile\n./.gnupg\n./.gnupg/private-keys-v1.d", "stdout_lines": [".", "./.bash_logout", "./.ansible", "./.ansible/tmp", "./.ansible/tmp/ansible-tmp-1536700536.56-237938190857924", "./.ansible/tmp/ansible-tmp-1536700136.67-245040585768375", "./.ansible/tmp/ansible-tmp-1536700436.65-88173954894659", "./.ansible/tmp/ansible-tmp-1536700596.51-82479805023395", "./.ansible/tmp/ansible-tmp-1536708553.31-183565561127731", "./.ansible/tmp/ansible-tmp-1536708553.31-183565561127731/command.py", "./.ansible/tmp/ansible-tmp-1536700659.95-81012090257157", "./.ansible/tmp/ansible-tmp-1536700659.95-81012090257157/source", "./.ansible/tmp/ansible-tmp-1536700659.95-81012090257157/copy.py", "./.ansible/tmp/ansible-tmp-1536700659.95-81012090257157/stat.py", "./.ansible/tmp/ansible-tmp-1536700252.46-84792165623521", "./.bashrc", "./.ssh", "./.ssh/authorized_keys", "./.cache", "./.cache/motd.legal-displayed", "./.profile", "./.gnupg", "./.gnupg/private-keys-v1.d"]}
+2018-09-11 19:29:14,071 p=11601 u=ansible |  fatal: [ansible2.example.com]: FAILED! => {"changed": true, "cmd": "find . \"*.yml\"", "delta": "0:00:00.011434", "end": "2018-09-11 19:29:13.969815", "msg": "non-zero return code", "rc": 1, "start": "2018-09-11 19:29:13.958381", "stderr": "find: ‘*.yml’: No such file or directory", "stderr_lines": ["find: ‘*.yml’: No such file or directory"], "stdout": ".\n./.mozilla\n./.mozilla/extensions\n./.mozilla/plugins\n./.bash_logout\n./.bash_profile\n./.bashrc\n./.ssh\n./.ssh/authorized_keys\n./.ansible\n./.ansible/tmp\n./.ansible/tmp/ansible-tmp-1536700136.62-236334413739946\n./.ansible/tmp/ansible-tmp-1536700252.39-13949695971993\n./.ansible/tmp/ansible-tmp-1536700436.6-8456754092900\n./.ansible/tmp/ansible-tmp-1536700536.51-95795159456295\n./.ansible/tmp/ansible-tmp-1536700596.45-37561660639792\n./.ansible/tmp/ansible-tmp-1536702215.34-62943756785896\n./.ansible/tmp/ansible-tmp-1536702769.81-116302500692633\n./.ansible/tmp/ansible-tmp-1536702806.75-78712079295610\n./.ansible/tmp/ansible-tmp-1536704428.11-46534659917721\n./.ansible/tmp/ansible-tmp-1536705097.79-103935226065741\n./.ansible/tmp/ansible-tmp-1536705125.3-220137378912515\n./.ansible/tmp/ansible-tmp-1536705195.24-34298898521712\n./.ansible/tmp/ansible-tmp-1536708553.25-2820538160142\n./.ansible/tmp/ansible-tmp-1536708553.25-2820538160142/command.py\n./.cache\n./.cache/abrt\n./.cache/abrt/lastnotification\n./.config\n./.config/abrt\n./.bash_history", "stdout_lines": [".", "./.mozilla", "./.mozilla/extensions", "./.mozilla/plugins", "./.bash_logout", "./.bash_profile", "./.bashrc", "./.ssh", "./.ssh/authorized_keys", "./.ansible", "./.ansible/tmp", "./.ansible/tmp/ansible-tmp-1536700136.62-236334413739946", "./.ansible/tmp/ansible-tmp-1536700252.39-13949695971993", "./.ansible/tmp/ansible-tmp-1536700436.6-8456754092900", "./.ansible/tmp/ansible-tmp-1536700536.51-95795159456295", "./.ansible/tmp/ansible-tmp-1536700596.45-37561660639792", "./.ansible/tmp/ansible-tmp-1536702215.34-62943756785896", "./.ansible/tmp/ansible-tmp-1536702769.81-116302500692633", "./.ansible/tmp/ansible-tmp-1536702806.75-78712079295610", "./.ansible/tmp/ansible-tmp-1536704428.11-46534659917721", "./.ansible/tmp/ansible-tmp-1536705097.79-103935226065741", "./.ansible/tmp/ansible-tmp-1536705125.3-220137378912515", "./.ansible/tmp/ansible-tmp-1536705195.24-34298898521712", "./.ansible/tmp/ansible-tmp-1536708553.25-2820538160142", "./.ansible/tmp/ansible-tmp-1536708553.25-2820538160142/command.py", "./.cache", "./.cache/abrt", "./.cache/abrt/lastnotification", "./.config", "./.config/abrt", "./.bash_history"]}
+2018-09-11 19:29:14,083 p=11601 u=ansible |  fatal: [ansible1.example.com]: FAILED! => {"changed": true, "cmd": "find . \"*.yml\"", "delta": "0:00:00.015974", "end": "2018-09-11 19:29:13.976756", "msg": "non-zero return code", "rc": 1, "start": "2018-09-11 19:29:13.960782", "stderr": "find: ‘*.yml’: No such file or directory", "stderr_lines": ["find: ‘*.yml’: No such file or directory"], "stdout": ".\n./.mozilla\n./.mozilla/extensions\n./.mozilla/plugins\n./.bash_logout\n./.bash_profile\n./.bashrc\n./.ssh\n./.ssh/authorized_keys\n./.cache\n./.cache/abrt\n./.cache/abrt/lastnotification\n./.cache/abrt/applet_dirlist\n./.cache/gdm\n./.cache/gdm/session.log.old\n./.cache/gdm/session.log\n./.cache/imsettings\n./.cache/imsettings/log.bak\n./.cache/imsettings/log\n./.cache/libgweather\n./.cache/evolution\n./.cache/evolution/addressbook\n./.cache/evolution/addressbook/trash\n./.cache/evolution/calendar\n./.cache/evolution/calendar/trash\n./.cache/evolution/mail\n./.cache/evolution/mail/trash\n./.cache/evolution/memos\n./.cache/evolution/memos/trash\n./.cache/evolution/sources\n./.cache/evolution/sources/trash\n./.cache/evolution/tasks\n./.cache/evolution/tasks/trash\n./.cache/gnome-shell\n./.cache/gnome-shell/update-check-3.25.4\n./.cache/tracker\n./.cache/tracker/db-version.txt\n./.cache/tracker/meta.db\n./.cache/tracker/db-locale.txt\n./.cache/tracker/meta.db-wal\n./.cache/tracker/meta.db-shm\n./.cache/tracker/ontologies.gvdb\n./.cache/tracker/parser-sha1.txt\n./.cache/tracker/locale-for-miner-user-guides.txt\n./.cache/tracker/locale-for-miner-apps.txt\n./.cache/tracker/last-crawl.txt\n./.cache/tracker/first-index.txt\n./.cache/event-sound-cache.tdb.55dbe830aef249baaa7fee183ba9f3f0.x86_64-redhat-linux-gnu\n./.cache/gstreamer-1.0\n./.cache/gstreamer-1.0/registry.x86_64.bin\n./.cache/gnome-software\n./.cache/gnome-software/3.22\n./.cache/gnome-software/3.22/ratings\n./.cache/gnome-software/3.22/ratings/odrs.json\n./.cache/gnome-software/3.22/extensions\n./.cache/gnome-software/3.22/extensions/gnome.json\n./.cache/media-art\n./.cache/yelp\n./.cache/yelp/WebKitCache\n./.cache/yelp/WebKitCache/Version 11\n./.cache/yelp/WebKitCache/Version 11/salt\n./.cache/yelp/WebKitCache/Version 11/Blobs\n./.config\n./.config/abrt\n./.config/imsettings\n./.config/gnome-session\n./.config/gnome-session/saved-session\n./.config/pulse\n./.config/pulse/55dbe830aef249baaa7fee183ba9f3f0-device-volumes.tdb\n./.config/pulse/55dbe830aef249baaa7fee183ba9f3f0-stream-volumes.tdb\n./.config/pulse/55dbe830aef249baaa7fee183ba9f3f0-card-database.tdb\n./.config/pulse/cookie\n./.config/pulse/55dbe830aef249baaa7fee183ba9f3f0-default-sink\n./.config/pulse/55dbe830aef249baaa7fee183ba9f3f0-default-source\n./.config/ibus\n./.config/ibus/bus\n./.config/ibus/bus/55dbe830aef249baaa7fee183ba9f3f0-unix-0\n./.config/dconf\n./.config/dconf/user\n./.config/evolution\n./.config/evolution/sources\n./.config/evolution/sources/system-proxy.source\n./.config/goa-1.0\n./.config/gconf\n./.config/user-dirs.dirs\n./.config/user-dirs.locale\n./.config/gtk-3.0\n./.config/gtk-3.0/bookmarks\n./.config/nautilus\n./.config/nautilus/desktop-metadata\n./.config/gnome-initial-setup-done\n./.config/yelp\n./.config/yelp/yelp.cfg\n./.bash_history\n./.ansible\n./.ansible/tmp\n./.ansible/tmp/ansible-tmp-1536700136.53-260467698137339\n./.ansible/tmp/ansible-tmp-1536700252.3-256822288272616\n./.ansible/tmp/ansible-tmp-1536700436.49-110642806886275\n./.ansible/tmp/ansible-tmp-1536700536.42-254000100083938\n./.ansible/tmp/ansible-tmp-1536700596.36-25296181726371\n./.ansible/tmp/ansible-tmp-1536700659.81-47637215886302\n./.ansible/tmp/ansible-tmp-1536700659.81-47637215886302/stat.py\n./.ansible/tmp/ansible-tmp-1536700659.81-47637215886302/source\n./.ansible/tmp/ansible-tmp-1536700659.81-47637215886302/copy.py\n./.ansible/tmp/ansible-tmp-1536702215.28-167907068697674\n./.ansible/tmp/ansible-tmp-1536702769.75-157394755865679\n./.ansible/tmp/ansible-tmp-1536702806.7-169982502103238\n./.ansible/tmp/ansible-tmp-1536704428.05-41804435359543\n./.ansible/tmp/ansible-tmp-1536705097.74-60977765329649\n./.ansible/tmp/ansible-tmp-1536705125.25-232745980388721\n./.ansible/tmp/ansible-tmp-1536705195.19-259481506621972\n./.ansible/tmp/ansible-tmp-1536708553.13-156725958949867\n./.ansible/tmp/ansible-tmp-1536708553.13-156725958949867/command.py\n./.dbus\n./.dbus/session-bus\n./.dbus/session-bus/55dbe830aef249baaa7fee183ba9f3f0-0\n./.ICEauthority\n./.local\n./.local/share\n./.local/share/keyrings\n./.local/share/keyrings/login.keyring\n./.local/share/keyrings/user.keystore\n./.local/share/gnome-shell\n./.local/share/gnome-shell/notifications\n./.local/share/telepathy\n./.local/share/telepathy/mission-control\n./.local/share/telepathy/mission-control/accounts.cfg\n./.local/share/telepathy/mission-control/accounts-goa.cfg\n./.local/share/evolution\n./.local/share/evolution/addressbook\n./.local/share/evolution/addressbook/trash\n./.local/share/evolution/addressbook/system\n./.local/share/evolution/addressbook/system/contacts.db\n./.local/share/evolution/addressbook/system/photos\n./.local/share/evolution/calendar\n./.local/share/evolution/calendar/trash\n./.local/share/evolution/calendar/system\n./.local/share/evolution/calendar/system/calendar.ics\n./.local/share/evolution/mail\n./.local/share/evolution/mail/trash\n./.local/share/evolution/memos\n./.local/share/evolution/memos/trash\n./.local/share/evolution/tasks\n./.local/share/evolution/tasks/trash\n./.local/share/gsettings-data-convert\n./.local/share/sounds\n./.local/share/applications\n./.local/share/icc\n./.local/share/flatpak\n./.local/share/flatpak/db\n./.local/share/flatpak/db/gnome\n./.local/share/flatpak/system-cache\n./.local/share/gnome-settings-daemon\n./.local/share/gnome-settings-daemon/input-sources-converted\n./.local/share/tracker\n./.local/share/tracker/data\n./.local/share/tracker/data/.meta.isrunning\n./.local/share/tracker/data/tracker-store.journal\n./.local/share/tracker/data/tracker-store.ontology.journal\n./.local/share/nautilus\n./.local/share/nautilus/scripts\n./.local/share/gvfs-metadata\n./.local/share/gvfs-metadata/home-79bb37b1.log\n./.local/share/gvfs-metadata/home\n./.local/share/gvfs-metadata/root\n./.local/share/gvfs-metadata/root-b73b54c5.log\n./.local/share/webkitgtk\n./.local/share/webkitgtk/localstorage\n./.local/share/app-info\n./.local/share/app-info/xmls\n./.local/share/app-info/xmls/extensions-web.xml\n./.esd_auth\n./Desktop\n./Downloads\n./Templates\n./Public\n./Documents\n./Music\n./Pictures\n./Videos", "stdout_lines": [".", "./.mozilla", "./.mozilla/extensions", "./.mozilla/plugins", "./.bash_logout", "./.bash_profile", "./.bashrc", "./.ssh", "./.ssh/authorized_keys", "./.cache", "./.cache/abrt", "./.cache/abrt/lastnotification", "./.cache/abrt/applet_dirlist", "./.cache/gdm", "./.cache/gdm/session.log.old", "./.cache/gdm/session.log", "./.cache/imsettings", "./.cache/imsettings/log.bak", "./.cache/imsettings/log", "./.cache/libgweather", "./.cache/evolution", "./.cache/evolution/addressbook", "./.cache/evolution/addressbook/trash", "./.cache/evolution/calendar", "./.cache/evolution/calendar/trash", "./.cache/evolution/mail", "./.cache/evolution/mail/trash", "./.cache/evolution/memos", "./.cache/evolution/memos/trash", "./.cache/evolution/sources", "./.cache/evolution/sources/trash", "./.cache/evolution/tasks", "./.cache/evolution/tasks/trash", "./.cache/gnome-shell", "./.cache/gnome-shell/update-check-3.25.4", "./.cache/tracker", "./.cache/tracker/db-version.txt", "./.cache/tracker/meta.db", "./.cache/tracker/db-locale.txt", "./.cache/tracker/meta.db-wal", "./.cache/tracker/meta.db-shm", "./.cache/tracker/ontologies.gvdb", "./.cache/tracker/parser-sha1.txt", "./.cache/tracker/locale-for-miner-user-guides.txt", "./.cache/tracker/locale-for-miner-apps.txt", "./.cache/tracker/last-crawl.txt", "./.cache/tracker/first-index.txt", "./.cache/event-sound-cache.tdb.55dbe830aef249baaa7fee183ba9f3f0.x86_64-redhat-linux-gnu", "./.cache/gstreamer-1.0", "./.cache/gstreamer-1.0/registry.x86_64.bin", "./.cache/gnome-software", "./.cache/gnome-software/3.22", "./.cache/gnome-software/3.22/ratings", "./.cache/gnome-software/3.22/ratings/odrs.json", "./.cache/gnome-software/3.22/extensions", "./.cache/gnome-software/3.22/extensions/gnome.json", "./.cache/media-art", "./.cache/yelp", "./.cache/yelp/WebKitCache", "./.cache/yelp/WebKitCache/Version 11", "./.cache/yelp/WebKitCache/Version 11/salt", "./.cache/yelp/WebKitCache/Version 11/Blobs", "./.config", "./.config/abrt", "./.config/imsettings", "./.config/gnome-session", "./.config/gnome-session/saved-session", "./.config/pulse", "./.config/pulse/55dbe830aef249baaa7fee183ba9f3f0-device-volumes.tdb", "./.config/pulse/55dbe830aef249baaa7fee183ba9f3f0-stream-volumes.tdb", "./.config/pulse/55dbe830aef249baaa7fee183ba9f3f0-card-database.tdb", "./.config/pulse/cookie", "./.config/pulse/55dbe830aef249baaa7fee183ba9f3f0-default-sink", "./.config/pulse/55dbe830aef249baaa7fee183ba9f3f0-default-source", "./.config/ibus", "./.config/ibus/bus", "./.config/ibus/bus/55dbe830aef249baaa7fee183ba9f3f0-unix-0", "./.config/dconf", "./.config/dconf/user", "./.config/evolution", "./.config/evolution/sources", "./.config/evolution/sources/system-proxy.source", "./.config/goa-1.0", "./.config/gconf", "./.config/user-dirs.dirs", "./.config/user-dirs.locale", "./.config/gtk-3.0", "./.config/gtk-3.0/bookmarks", "./.config/nautilus", "./.config/nautilus/desktop-metadata", "./.config/gnome-initial-setup-done", "./.config/yelp", "./.config/yelp/yelp.cfg", "./.bash_history", "./.ansible", "./.ansible/tmp", "./.ansible/tmp/ansible-tmp-1536700136.53-260467698137339", "./.ansible/tmp/ansible-tmp-1536700252.3-256822288272616", "./.ansible/tmp/ansible-tmp-1536700436.49-110642806886275", "./.ansible/tmp/ansible-tmp-1536700536.42-254000100083938", "./.ansible/tmp/ansible-tmp-1536700596.36-25296181726371", "./.ansible/tmp/ansible-tmp-1536700659.81-47637215886302", "./.ansible/tmp/ansible-tmp-1536700659.81-47637215886302/stat.py", "./.ansible/tmp/ansible-tmp-1536700659.81-47637215886302/source", "./.ansible/tmp/ansible-tmp-1536700659.81-47637215886302/copy.py", "./.ansible/tmp/ansible-tmp-1536702215.28-167907068697674", "./.ansible/tmp/ansible-tmp-1536702769.75-157394755865679", "./.ansible/tmp/ansible-tmp-1536702806.7-169982502103238", "./.ansible/tmp/ansible-tmp-1536704428.05-41804435359543", "./.ansible/tmp/ansible-tmp-1536705097.74-60977765329649", "./.ansible/tmp/ansible-tmp-1536705125.25-232745980388721", "./.ansible/tmp/ansible-tmp-1536705195.19-259481506621972", "./.ansible/tmp/ansible-tmp-1536708553.13-156725958949867", "./.ansible/tmp/ansible-tmp-1536708553.13-156725958949867/command.py", "./.dbus", "./.dbus/session-bus", "./.dbus/session-bus/55dbe830aef249baaa7fee183ba9f3f0-0", "./.ICEauthority", "./.local", "./.local/share", "./.local/share/keyrings", "./.local/share/keyrings/login.keyring", "./.local/share/keyrings/user.keystore", "./.local/share/gnome-shell", "./.local/share/gnome-shell/notifications", "./.local/share/telepathy", "./.local/share/telepathy/mission-control", "./.local/share/telepathy/mission-control/accounts.cfg", "./.local/share/telepathy/mission-control/accounts-goa.cfg", "./.local/share/evolution", "./.local/share/evolution/addressbook", "./.local/share/evolution/addressbook/trash", "./.local/share/evolution/addressbook/system", "./.local/share/evolution/addressbook/system/contacts.db", "./.local/share/evolution/addressbook/system/photos", "./.local/share/evolution/calendar", "./.local/share/evolution/calendar/trash", "./.local/share/evolution/calendar/system", "./.local/share/evolution/calendar/system/calendar.ics", "./.local/share/evolution/mail", "./.local/share/evolution/mail/trash", "./.local/share/evolution/memos", "./.local/share/evolution/memos/trash", "./.local/share/evolution/tasks", "./.local/share/evolution/tasks/trash", "./.local/share/gsettings-data-convert", "./.local/share/sounds", "./.local/share/applications", "./.local/share/icc", "./.local/share/flatpak", "./.local/share/flatpak/db", "./.local/share/flatpak/db/gnome", "./.local/share/flatpak/system-cache", "./.local/share/gnome-settings-daemon", "./.local/share/gnome-settings-daemon/input-sources-converted", "./.local/share/tracker", "./.local/share/tracker/data", "./.local/share/tracker/data/.meta.isrunning", "./.local/share/tracker/data/tracker-store.journal", "./.local/share/tracker/data/tracker-store.ontology.journal", "./.local/share/nautilus", "./.local/share/nautilus/scripts", "./.local/share/gvfs-metadata", "./.local/share/gvfs-metadata/home-79bb37b1.log", "./.local/share/gvfs-metadata/home", "./.local/share/gvfs-metadata/root", "./.local/share/gvfs-metadata/root-b73b54c5.log", "./.local/share/webkitgtk", "./.local/share/webkitgtk/localstorage", "./.local/share/app-info", "./.local/share/app-info/xmls", "./.local/share/app-info/xmls/extensions-web.xml", "./.esd_auth", "./Desktop", "./Downloads", "./Templates", "./Public", "./Documents", "./Music", "./Pictures", "./Videos"]}
+2018-09-11 19:29:14,085 p=11601 u=ansible |  	to retry, use: --limit @/home/ansible/loops/copytxt.retry
+
+2018-09-11 19:29:14,086 p=11601 u=ansible |  PLAY RECAP **********************************************************************************
+2018-09-11 19:29:14,086 p=11601 u=ansible |  ansible1.example.com       : ok=1    changed=0    unreachable=0    failed=1   
+2018-09-11 19:29:14,086 p=11601 u=ansible |  ansible2.example.com       : ok=1    changed=0    unreachable=0    failed=1   
+2018-09-11 19:29:14,086 p=11601 u=ansible |  ubuntu.example.com         : ok=1    changed=0    unreachable=0    failed=1   
+2018-09-11 19:32:02,434 p=11716 u=ansible |  PLAY [registered variable usage as a loop list] *********************************************
+2018-09-11 19:32:02,458 p=11716 u=ansible |  TASK [Gathering Facts] **********************************************************************
+2018-09-11 19:32:04,304 p=11716 u=ansible |  ok: [ubuntu.example.com]
+2018-09-11 19:32:04,746 p=11716 u=ansible |  ok: [ansible2.example.com]
+2018-09-11 19:32:04,836 p=11716 u=ansible |  ok: [ansible1.example.com]
+2018-09-11 19:32:04,868 p=11716 u=ansible |  TASK [retrieve the list of home directories] ************************************************
+2018-09-11 19:32:05,567 p=11716 u=ansible |  changed: [ubuntu.example.com]
+2018-09-11 19:32:05,789 p=11716 u=ansible |  changed: [ansible2.example.com]
+2018-09-11 19:32:05,797 p=11716 u=ansible |  changed: [ansible1.example.com]
+2018-09-11 19:32:05,829 p=11716 u=ansible |  TASK [add home dirs to the backup spooler] **************************************************
+2018-09-11 19:32:06,598 p=11716 u=ansible |  failed: [ubuntu.example.com] (item=anna) => {"changed": false, "item": "anna", "msg": "Error while linking: [Errno 2] No such file or directory", "path": "/mnt/bkspool/anna", "state": "absent"}
+2018-09-11 19:32:06,840 p=11716 u=ansible |  failed: [ansible2.example.com] (item=anna) => {"changed": false, "item": "anna", "msg": "Error while linking: [Errno 2] No such file or directory", "path": "/mnt/bkspool/anna", "state": "absent"}
+2018-09-11 19:32:06,848 p=11716 u=ansible |  failed: [ansible1.example.com] (item=anna) => {"changed": false, "item": "anna", "msg": "Error while linking: [Errno 2] No such file or directory", "path": "/mnt/bkspool/anna", "state": "absent"}
+2018-09-11 19:32:06,911 p=11716 u=ansible |  failed: [ubuntu.example.com] (item=ansible) => {"changed": false, "item": "ansible", "msg": "Error while linking: [Errno 2] No such file or directory", "path": "/mnt/bkspool/ansible", "state": "absent"}
+2018-09-11 19:32:07,241 p=11716 u=ansible |  failed: [ubuntu.example.com] (item=linda) => {"changed": false, "item": "linda", "msg": "Error while linking: [Errno 2] No such file or directory", "path": "/mnt/bkspool/linda", "state": "absent"}
+2018-09-11 19:32:07,523 p=11716 u=ansible |  failed: [ansible1.example.com] (item=ansible) => {"changed": false, "item": "ansible", "msg": "Error while linking: [Errno 2] No such file or directory", "path": "/mnt/bkspool/ansible", "state": "absent"}
+2018-09-11 19:32:07,537 p=11716 u=ansible |  failed: [ansible2.example.com] (item=ansible) => {"changed": false, "item": "ansible", "msg": "Error while linking: [Errno 2] No such file or directory", "path": "/mnt/bkspool/ansible", "state": "absent"}
+2018-09-11 19:32:07,553 p=11716 u=ansible |  failed: [ubuntu.example.com] (item=sander) => {"changed": false, "item": "sander", "msg": "Error while linking: [Errno 2] No such file or directory", "path": "/mnt/bkspool/sander", "state": "absent"}
+2018-09-11 19:32:08,122 p=11716 u=ansible |  failed: [ansible2.example.com] (item=linda) => {"changed": false, "item": "linda", "msg": "Error while linking: [Errno 2] No such file or directory", "path": "/mnt/bkspool/linda", "state": "absent"}
+2018-09-11 19:32:08,132 p=11716 u=ansible |  failed: [ansible1.example.com] (item=linda) => {"changed": false, "item": "linda", "msg": "Error while linking: [Errno 2] No such file or directory", "path": "/mnt/bkspool/linda", "state": "absent"}
+2018-09-11 19:32:08,708 p=11716 u=ansible |  failed: [ansible2.example.com] (item=user) => {"changed": false, "item": "user", "msg": "Error while linking: [Errno 2] No such file or directory", "path": "/mnt/bkspool/user", "state": "absent"}
+2018-09-11 19:32:08,714 p=11716 u=ansible |  failed: [ansible1.example.com] (item=user) => {"changed": false, "item": "user", "msg": "Error while linking: [Errno 2] No such file or directory", "path": "/mnt/bkspool/user", "state": "absent"}
+2018-09-11 19:32:08,722 p=11716 u=ansible |  	to retry, use: --limit @/home/ansible/loops/register2.retry
+
+2018-09-11 19:32:08,722 p=11716 u=ansible |  PLAY RECAP **********************************************************************************
+2018-09-11 19:32:08,722 p=11716 u=ansible |  ansible1.example.com       : ok=2    changed=1    unreachable=0    failed=1   
+2018-09-11 19:32:08,722 p=11716 u=ansible |  ansible2.example.com       : ok=2    changed=1    unreachable=0    failed=1   
+2018-09-11 19:32:08,722 p=11716 u=ansible |  ubuntu.example.com         : ok=2    changed=1    unreachable=0    failed=1   
+2018-09-11 19:34:10,440 p=11907 u=ansible |  PLAY [registered variable usage as a loop list] *********************************************
+2018-09-11 19:34:10,457 p=11907 u=ansible |  TASK [Gathering Facts] **********************************************************************
+2018-09-11 19:34:12,319 p=11907 u=ansible |  ok: [ubuntu.example.com]
+2018-09-11 19:34:12,788 p=11907 u=ansible |  ok: [ansible2.example.com]
+2018-09-11 19:34:12,817 p=11907 u=ansible |  ok: [ansible1.example.com]
+2018-09-11 19:34:12,852 p=11907 u=ansible |  TASK [create the backup spooler directory] **************************************************
+2018-09-11 19:34:13,559 p=11907 u=ansible |  changed: [ubuntu.example.com]
+2018-09-11 19:34:13,765 p=11907 u=ansible |  changed: [ansible2.example.com]
+2018-09-11 19:34:13,770 p=11907 u=ansible |  changed: [ansible1.example.com]
+2018-09-11 19:34:13,796 p=11907 u=ansible |  TASK [retrieve the list of home directories] ************************************************
+2018-09-11 19:34:14,557 p=11907 u=ansible |  changed: [ubuntu.example.com]
+2018-09-11 19:34:14,776 p=11907 u=ansible |  changed: [ansible1.example.com]
+2018-09-11 19:34:14,781 p=11907 u=ansible |  changed: [ansible2.example.com]
+2018-09-11 19:34:14,820 p=11907 u=ansible |  TASK [add home dirs to the backup spooler] **************************************************
+2018-09-11 19:34:15,504 p=11907 u=ansible |  changed: [ubuntu.example.com] => (item=anna)
+2018-09-11 19:34:15,653 p=11907 u=ansible |  changed: [ansible1.example.com] => (item=anna)
+2018-09-11 19:34:15,756 p=11907 u=ansible |  changed: [ansible2.example.com] => (item=anna)
+2018-09-11 19:34:15,880 p=11907 u=ansible |  changed: [ubuntu.example.com] => (item=ansible)
+2018-09-11 19:34:16,236 p=11907 u=ansible |  changed: [ubuntu.example.com] => (item=linda)
+2018-09-11 19:34:16,317 p=11907 u=ansible |  changed: [ansible1.example.com] => (item=ansible)
+2018-09-11 19:34:16,410 p=11907 u=ansible |  changed: [ansible2.example.com] => (item=ansible)
+2018-09-11 19:34:16,615 p=11907 u=ansible |  changed: [ubuntu.example.com] => (item=sander)
+2018-09-11 19:34:16,928 p=11907 u=ansible |  changed: [ansible1.example.com] => (item=linda)
+2018-09-11 19:34:17,006 p=11907 u=ansible |  changed: [ansible2.example.com] => (item=linda)
+2018-09-11 19:34:17,536 p=11907 u=ansible |  changed: [ansible1.example.com] => (item=user)
+2018-09-11 19:34:17,542 p=11907 u=ansible |  changed: [ansible2.example.com] => (item=user)
+2018-09-11 19:34:17,550 p=11907 u=ansible |  PLAY RECAP **********************************************************************************
+2018-09-11 19:34:17,550 p=11907 u=ansible |  ansible1.example.com       : ok=4    changed=3    unreachable=0    failed=0   
+2018-09-11 19:34:17,550 p=11907 u=ansible |  ansible2.example.com       : ok=4    changed=3    unreachable=0    failed=0   
+2018-09-11 19:34:17,550 p=11907 u=ansible |  ubuntu.example.com         : ok=4    changed=3    unreachable=0    failed=0   
+2018-09-12 14:02:26,926 p=3730 u=ansible |  PLAY [registered variables demo 1] ********************************************************************************************
+2018-09-12 14:02:26,950 p=3730 u=ansible |  TASK [Gathering Facts] ********************************************************************************************************
+2018-09-12 14:02:29,053 p=3730 u=ansible |  ok: [ansible2.example.com]
+2018-09-12 14:02:29,171 p=3730 u=ansible |  ok: [ansible1.example.com]
+2018-09-12 14:02:29,204 p=3730 u=ansible |  ok: [ubuntu.example.com]
+2018-09-12 14:02:29,241 p=3730 u=ansible |  TASK [capture output of the who command] **************************************************************************************
+2018-09-12 14:02:29,933 p=3730 u=ansible |  changed: [ubuntu.example.com]
+2018-09-12 14:02:30,145 p=3730 u=ansible |  changed: [ansible2.example.com]
+2018-09-12 14:02:30,149 p=3730 u=ansible |  changed: [ansible1.example.com]
+2018-09-12 14:02:30,181 p=3730 u=ansible |  TASK [shell] ******************************************************************************************************************
+2018-09-12 14:02:30,772 p=3730 u=ansible |  changed: [ubuntu.example.com]
+2018-09-12 14:02:30,885 p=3730 u=ansible |  changed: [ansible1.example.com]
+2018-09-12 14:02:30,929 p=3730 u=ansible |  changed: [ansible2.example.com]
+2018-09-12 14:02:30,932 p=3730 u=ansible |  PLAY RECAP ********************************************************************************************************************
+2018-09-12 14:02:30,932 p=3730 u=ansible |  ansible1.example.com       : ok=3    changed=2    unreachable=0    failed=0   
+2018-09-12 14:02:30,932 p=3730 u=ansible |  ansible2.example.com       : ok=3    changed=2    unreachable=0    failed=0   
+2018-09-12 14:02:30,932 p=3730 u=ansible |  ubuntu.example.com         : ok=3    changed=2    unreachable=0    failed=0   
+2018-09-12 14:02:46,464 p=3830 u=ansible |  Using /home/ansible/loops/ansible.cfg as config file
+2018-09-12 14:02:46,754 p=3830 u=ansible |  PLAY [registered variables demo 1] ********************************************************************************************
+2018-09-12 14:02:46,770 p=3830 u=ansible |  TASK [Gathering Facts] ********************************************************************************************************
+2018-09-12 14:02:48,007 p=3830 u=ansible |  ok: [ubuntu.example.com]
+2018-09-12 14:02:48,414 p=3830 u=ansible |  ok: [ansible1.example.com]
+2018-09-12 14:02:48,430 p=3830 u=ansible |  ok: [ansible2.example.com]
+2018-09-12 14:02:48,461 p=3830 u=ansible |  TASK [capture output of the who command] **************************************************************************************
+2018-09-12 14:02:49,159 p=3830 u=ansible |  changed: [ubuntu.example.com] => {"changed": true, "cmd": ["who"], "delta": "0:00:00.002597", "end": "2018-09-12 18:02:49.083282", "rc": 0, "start": "2018-09-12 18:02:49.080685", "stderr": "", "stderr_lines": [], "stdout": "ansible  pts/0        2018-09-12 18:02 (192.168.4.80)", "stdout_lines": ["ansible  pts/0        2018-09-12 18:02 (192.168.4.80)"]}
+2018-09-12 14:02:49,343 p=3830 u=ansible |  changed: [ansible2.example.com] => {"changed": true, "cmd": ["who"], "delta": "0:00:00.005656", "end": "2018-09-12 14:02:49.263660", "rc": 0, "start": "2018-09-12 14:02:49.258004", "stderr": "", "stderr_lines": [], "stdout": "ansible  pts/0        2018-09-12 14:02 (192.168.4.80)", "stdout_lines": ["ansible  pts/0        2018-09-12 14:02 (192.168.4.80)"]}
+2018-09-12 14:02:49,348 p=3830 u=ansible |  changed: [ansible1.example.com] => {"changed": true, "cmd": ["who"], "delta": "0:00:00.004926", "end": "2018-09-12 14:02:49.274471", "rc": 0, "start": "2018-09-12 14:02:49.269545", "stderr": "", "stderr_lines": [], "stdout": "ansible  pts/0        2018-09-12 14:02 (192.168.4.80)", "stdout_lines": ["ansible  pts/0        2018-09-12 14:02 (192.168.4.80)"]}
+2018-09-12 14:02:49,380 p=3830 u=ansible |  TASK [shell] ******************************************************************************************************************
+2018-09-12 14:02:49,984 p=3830 u=ansible |  changed: [ubuntu.example.com] => {"changed": true, "cmd": "echo \"user ansible is logged in\"", "delta": "0:00:00.001895", "end": "2018-09-12 18:02:49.911362", "rc": 0, "start": "2018-09-12 18:02:49.909467", "stderr": "", "stderr_lines": [], "stdout": "user ansible is logged in", "stdout_lines": ["user ansible is logged in"]}
+2018-09-12 14:02:50,104 p=3830 u=ansible |  changed: [ansible1.example.com] => {"changed": true, "cmd": "echo \"user ansible is logged in\"", "delta": "0:00:00.007497", "end": "2018-09-12 14:02:50.043500", "rc": 0, "start": "2018-09-12 14:02:50.036003", "stderr": "", "stderr_lines": [], "stdout": "user ansible is logged in", "stdout_lines": ["user ansible is logged in"]}
+2018-09-12 14:02:50,154 p=3830 u=ansible |  changed: [ansible2.example.com] => {"changed": true, "cmd": "echo \"user ansible is logged in\"", "delta": "0:00:00.006081", "end": "2018-09-12 14:02:50.092379", "rc": 0, "start": "2018-09-12 14:02:50.086298", "stderr": "", "stderr_lines": [], "stdout": "user ansible is logged in", "stdout_lines": ["user ansible is logged in"]}
+2018-09-12 14:02:50,157 p=3830 u=ansible |  PLAY RECAP ********************************************************************************************************************
+2018-09-12 14:02:50,157 p=3830 u=ansible |  ansible1.example.com       : ok=3    changed=2    unreachable=0    failed=0   
+2018-09-12 14:02:50,157 p=3830 u=ansible |  ansible2.example.com       : ok=3    changed=2    unreachable=0    failed=0   
+2018-09-12 14:02:50,157 p=3830 u=ansible |  ubuntu.example.com         : ok=3    changed=2    unreachable=0    failed=0   
+2018-09-12 14:06:02,958 p=3985 u=ansible |  PLAY [registered variable usage as a loop list] *******************************************************************************
+2018-09-12 14:06:02,973 p=3985 u=ansible |  TASK [Gathering Facts] ********************************************************************************************************
+2018-09-12 14:06:04,691 p=3985 u=ansible |  ok: [ubuntu.example.com]
+2018-09-12 14:06:05,215 p=3985 u=ansible |  ok: [ansible2.example.com]
+2018-09-12 14:06:05,232 p=3985 u=ansible |  ok: [ansible1.example.com]
+2018-09-12 14:06:05,262 p=3985 u=ansible |  TASK [create the backup spooler directory] ************************************************************************************
+2018-09-12 14:06:05,931 p=3985 u=ansible |  ok: [ubuntu.example.com]
+2018-09-12 14:06:06,149 p=3985 u=ansible |  ok: [ansible2.example.com]
+2018-09-12 14:06:06,164 p=3985 u=ansible |  ok: [ansible1.example.com]
+2018-09-12 14:06:06,196 p=3985 u=ansible |  TASK [retrieve the list of home directories] **********************************************************************************
+2018-09-12 14:06:06,904 p=3985 u=ansible |  changed: [ubuntu.example.com]
+2018-09-12 14:06:07,090 p=3985 u=ansible |  changed: [ansible2.example.com]
+2018-09-12 14:06:07,095 p=3985 u=ansible |  changed: [ansible1.example.com]
+2018-09-12 14:06:07,128 p=3985 u=ansible |  TASK [add home dirs to the backup spooler] ************************************************************************************
+2018-09-12 14:06:07,737 p=3985 u=ansible |  ok: [ubuntu.example.com] => (item=anna)
+2018-09-12 14:06:07,893 p=3985 u=ansible |  ok: [ansible1.example.com] => (item=anna)
+2018-09-12 14:06:07,939 p=3985 u=ansible |  ok: [ansible2.example.com] => (item=anna)
+2018-09-12 14:06:08,011 p=3985 u=ansible |  ok: [ubuntu.example.com] => (item=ansible)
+2018-09-12 14:06:08,424 p=3985 u=ansible |  ok: [ubuntu.example.com] => (item=linda)
+2018-09-12 14:06:08,550 p=3985 u=ansible |  ok: [ansible1.example.com] => (item=ansible)
+2018-09-12 14:06:08,630 p=3985 u=ansible |  ok: [ansible2.example.com] => (item=ansible)
+2018-09-12 14:06:08,732 p=3985 u=ansible |  ok: [ubuntu.example.com] => (item=sander)
+2018-09-12 14:06:09,111 p=3985 u=ansible |  ok: [ansible1.example.com] => (item=linda)
+2018-09-12 14:06:09,163 p=3985 u=ansible |  ok: [ansible2.example.com] => (item=linda)
+2018-09-12 14:06:09,590 p=3985 u=ansible |  ok: [ansible1.example.com] => (item=user)
+2018-09-12 14:06:09,622 p=3985 u=ansible |  ok: [ansible2.example.com] => (item=user)
+2018-09-12 14:06:09,628 p=3985 u=ansible |  PLAY RECAP ********************************************************************************************************************
+2018-09-12 14:06:09,628 p=3985 u=ansible |  ansible1.example.com       : ok=4    changed=1    unreachable=0    failed=0   
+2018-09-12 14:06:09,628 p=3985 u=ansible |  ansible2.example.com       : ok=4    changed=1    unreachable=0    failed=0   
+2018-09-12 14:06:09,628 p=3985 u=ansible |  ubuntu.example.com         : ok=4    changed=1    unreachable=0    failed=0   
+2018-09-13 13:02:35,637 p=13571 u=ansible |    hosts (2):
+2018-09-13 13:02:35,638 p=13571 u=ansible |      ansible1.example.com
+2018-09-13 13:02:35,638 p=13571 u=ansible |      192.168.4.50
+2018-09-13 13:03:18,556 p=13578 u=ansible |    hosts (1):
+2018-09-13 13:03:18,556 p=13578 u=ansible |      ansible3.example.com
+2018-09-13 13:04:21,609 p=13593 u=ansible |    hosts (2):
+2018-09-13 13:04:21,609 p=13593 u=ansible |      ansible1.example.com
+2018-09-13 13:04:21,610 p=13593 u=ansible |      ansible2.example.com
+2018-10-25 08:38:15,561 p=18344 u=ansible |  PLAY [copy new index.html] ***************************************************************************************
+2018-10-25 08:38:15,624 p=18344 u=ansible |  TASK [Gathering Facts] *******************************************************************************************
+2018-10-25 08:38:18,518 p=18344 u=ansible |  ok: [ansible2.example.com]
+2018-10-25 08:38:19,017 p=18344 u=ansible |  ok: [ansible1.example.com]
+2018-10-25 08:38:19,171 p=18344 u=ansible |  fatal: [ansible3.example.com]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host ansible3.example.com port 22: No route to host\r\n", "unreachable": true}
+2018-10-25 08:38:19,208 p=18344 u=ansible |  TASK [install httpd] *********************************************************************************************
+2018-10-25 08:38:20,475 p=18344 u=ansible |  ok: [ansible2.example.com]
+2018-10-25 08:38:20,642 p=18344 u=ansible |  ok: [ansible1.example.com]
+2018-10-25 08:38:20,667 p=18344 u=ansible |  TASK [copy index.html] *******************************************************************************************
+2018-10-25 08:38:22,263 p=18344 u=ansible |  changed: [ansible2.example.com]
+2018-10-25 08:38:22,272 p=18344 u=ansible |  changed: [ansible1.example.com]
+2018-10-25 08:38:22,304 p=18344 u=ansible |  TASK [copy nothing] **********************************************************************************************
+2018-10-25 08:38:22,514 p=18344 u=ansible |  An exception occurred during task execution. To see the full traceback, use -vvv. The error was: If you are using a module and expect the file to exist on the remote, see the remote_src option
+2018-10-25 08:38:22,515 p=18344 u=ansible |  fatal: [ansible1.example.com]: FAILED! => {"changed": false, "msg": "Could not find or access '/tmp/nothing' on the Ansible Controller.\nIf you are using a module and expect the file to exist on the remote, see the remote_src option"}
+2018-10-25 08:38:22,540 p=18344 u=ansible |  An exception occurred during task execution. To see the full traceback, use -vvv. The error was: If you are using a module and expect the file to exist on the remote, see the remote_src option
+2018-10-25 08:38:22,540 p=18344 u=ansible |  fatal: [ansible2.example.com]: FAILED! => {"changed": false, "msg": "Could not find or access '/tmp/nothing' on the Ansible Controller.\nIf you are using a module and expect the file to exist on the remote, see the remote_src option"}
+2018-10-25 08:38:22,541 p=18344 u=ansible |  RUNNING HANDLER [restart_web] ************************************************************************************
+2018-10-25 08:38:27,958 p=18344 u=ansible |  changed: [ansible2.example.com]
+2018-10-25 08:38:27,963 p=18344 u=ansible |  changed: [ansible1.example.com]
+2018-10-25 08:38:27,965 p=18344 u=ansible |  	to retry, use: --limit @/home/ansible/loops/handlers.retry
+
+2018-10-25 08:38:27,965 p=18344 u=ansible |  PLAY RECAP *******************************************************************************************************
+2018-10-25 08:38:27,965 p=18344 u=ansible |  ansible1.example.com       : ok=4    changed=2    unreachable=0    failed=1   
+2018-10-25 08:38:27,965 p=18344 u=ansible |  ansible2.example.com       : ok=4    changed=2    unreachable=0    failed=1   
+2018-10-25 08:38:27,965 p=18344 u=ansible |  ansible3.example.com       : ok=0    changed=0    unreachable=1    failed=0   
+2018-10-27 10:01:34,867 p=98574 u=ansible |  PLAY [registered variables demo 1] *******************************************************************************
+2018-10-27 10:01:34,902 p=98574 u=ansible |  TASK [Gathering Facts] *******************************************************************************************
+2018-10-27 10:01:37,192 p=98574 u=ansible |  ok: [ansible2.example.com]
+2018-10-27 10:01:37,267 p=98574 u=ansible |  ok: [ansible1.example.com]
+2018-10-27 10:01:38,132 p=98574 u=ansible |  fatal: [ansible3.example.com]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host ansible3.example.com port 22: No route to host\r\n", "unreachable": true}
+2018-10-27 10:01:38,167 p=98574 u=ansible |  fatal: [ubuntu.example.com]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host ubuntu.example.com port 22: No route to host\r\n", "unreachable": true}
+2018-10-27 10:01:38,178 p=98574 u=ansible |  fatal: [192.168.4.50]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 192.168.4.50 port 22: No route to host\r\n", "unreachable": true}
+2018-10-27 10:01:38,211 p=98574 u=ansible |  TASK [capture output of the who command] *************************************************************************
+2018-10-27 10:01:39,214 p=98574 u=ansible |  changed: [ansible2.example.com]
+2018-10-27 10:01:39,222 p=98574 u=ansible |  changed: [ansible1.example.com]
+2018-10-27 10:01:39,255 p=98574 u=ansible |  TASK [shell] *****************************************************************************************************
+2018-10-27 10:01:39,939 p=98574 u=ansible |  changed: [ansible1.example.com]
+2018-10-27 10:01:39,970 p=98574 u=ansible |  changed: [ansible2.example.com]
+2018-10-27 10:01:39,973 p=98574 u=ansible |  	to retry, use: --limit @/home/ansible/loops/register.retry
+
+2018-10-27 10:01:39,973 p=98574 u=ansible |  PLAY RECAP *******************************************************************************************************
+2018-10-27 10:01:39,973 p=98574 u=ansible |  192.168.4.50               : ok=0    changed=0    unreachable=1    failed=0   
+2018-10-27 10:01:39,973 p=98574 u=ansible |  ansible1.example.com       : ok=3    changed=2    unreachable=0    failed=0   
+2018-10-27 10:01:39,973 p=98574 u=ansible |  ansible2.example.com       : ok=3    changed=2    unreachable=0    failed=0   
+2018-10-27 10:01:39,973 p=98574 u=ansible |  ansible3.example.com       : ok=0    changed=0    unreachable=1    failed=0   
+2018-10-27 10:01:39,974 p=98574 u=ansible |  ubuntu.example.com         : ok=0    changed=0    unreachable=1    failed=0   
+2018-10-27 10:02:14,198 p=99316 u=ansible |  PLAY [registered variables demo 1] *******************************************************************************
+2018-10-27 10:02:14,215 p=99316 u=ansible |  TASK [Gathering Facts] *******************************************************************************************
+2018-10-27 10:02:16,035 p=99316 u=ansible |  ok: [ansible1.example.com]
+2018-10-27 10:02:16,061 p=99316 u=ansible |  ok: [ansible2.example.com]
+2018-10-27 10:02:17,412 p=99316 u=ansible |  fatal: [ansible3.example.com]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host ansible3.example.com port 22: No route to host\r\n", "unreachable": true}
+2018-10-27 10:02:17,442 p=99316 u=ansible |  fatal: [192.168.4.50]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 192.168.4.50 port 22: No route to host\r\n", "unreachable": true}
+2018-10-27 10:02:17,463 p=99316 u=ansible |  fatal: [ubuntu.example.com]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host ubuntu.example.com port 22: No route to host\r\n", "unreachable": true}
+2018-10-27 10:02:17,495 p=99316 u=ansible |  TASK [capture output of the who command] *************************************************************************
+2018-10-27 10:02:18,354 p=99316 u=ansible |  changed: [ansible2.example.com]
+2018-10-27 10:02:18,359 p=99316 u=ansible |  changed: [ansible1.example.com]
+2018-10-27 10:02:18,394 p=99316 u=ansible |  TASK [shell] *****************************************************************************************************
+2018-10-27 10:02:18,468 p=99316 u=ansible |  skipping: [ansible1.example.com]
+2018-10-27 10:02:18,474 p=99316 u=ansible |  skipping: [ansible2.example.com]
+2018-10-27 10:02:18,477 p=99316 u=ansible |  	to retry, use: --limit @/home/ansible/loops/register.retry
+
+2018-10-27 10:02:18,477 p=99316 u=ansible |  PLAY RECAP *******************************************************************************************************
+2018-10-27 10:02:18,478 p=99316 u=ansible |  192.168.4.50               : ok=0    changed=0    unreachable=1    failed=0   
+2018-10-27 10:02:18,478 p=99316 u=ansible |  ansible1.example.com       : ok=2    changed=1    unreachable=0    failed=0   
+2018-10-27 10:02:18,478 p=99316 u=ansible |  ansible2.example.com       : ok=2    changed=1    unreachable=0    failed=0   
+2018-10-27 10:02:18,478 p=99316 u=ansible |  ansible3.example.com       : ok=0    changed=0    unreachable=1    failed=0   
+2018-10-27 10:02:18,479 p=99316 u=ansible |  ubuntu.example.com         : ok=0    changed=0    unreachable=1    failed=0   
+2018-10-27 10:04:30,971 p=101821 u=ansible |   [WARNING]: Could not match supplied host pattern, ignoring: register3.yml
+
+2018-10-27 10:04:30,971 p=101821 u=ansible |   [WARNING]: No hosts matched, nothing to do
+
+2018-10-27 10:04:30,982 p=101821 u=ansible |  ERROR! No argument passed to command module (did you mean to run ansible-playbook?)
+2018-10-27 10:04:40,063 p=101986 u=ansible |  PLAY [show register] *********************************************************************************************
+2018-10-27 10:04:40,079 p=101986 u=ansible |  TASK [Gathering Facts] *******************************************************************************************
+2018-10-27 10:04:41,945 p=101986 u=ansible |  ok: [ansible1.example.com]
+2018-10-27 10:04:41,976 p=101986 u=ansible |  TASK [get output of id command] **********************************************************************************
+2018-10-27 10:04:42,586 p=101986 u=ansible |  changed: [ansible1.example.com]
+2018-10-27 10:04:42,620 p=101986 u=ansible |  TASK [debug] *****************************************************************************************************
+2018-10-27 10:04:42,689 p=101986 u=ansible |  ok: [ansible1.example.com] => {
+    "loggedin": {
+        "changed": true, 
+        "cmd": [
+            "id", 
+            "-un"
+        ], 
+        "delta": "0:00:00.006972", 
+        "end": "2018-10-27 10:04:42.525759", 
+        "failed": false, 
+        "rc": 0, 
+        "start": "2018-10-27 10:04:42.518787", 
+        "stderr": "", 
+        "stderr_lines": [], 
+        "stdout": "root", 
+        "stdout_lines": [
+            "root"
+        ]
+    }
+}
+2018-10-27 10:04:42,695 p=101986 u=ansible |  PLAY RECAP *******************************************************************************************************
+2018-10-27 10:04:42,696 p=101986 u=ansible |  ansible1.example.com       : ok=3    changed=1    unreachable=0    failed=0   

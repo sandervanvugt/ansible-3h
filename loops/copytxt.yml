@@ -1,0 +1,11 @@
+- hosts: all
+  tasks:
+  - name: use with_output in registered variables
+    shell: 'find . "*.yml"'
+    args:
+      chdir: /home/ansible/
+    register: with_output
+
+  - shell: "cp {{ item }} /tmp/{{ item }}_bak"
+    with_items:
+      - "{{ with_output.stdout_lines }}"

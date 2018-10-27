@@ -1,0 +1,23 @@
+---
+- name: copy new index.html
+  hosts: centos
+  force_handlers: yes
+  tasks:
+    - name: install httpd
+      yum: name=httpd
+    - name: copy index.html
+      copy:
+        src: /tmp/index.html
+        dest: /var/www/html/index.html
+      notify:
+        - restart_web
+    - name: copy nothing
+      copy: 
+        src: /tmp/nothing
+        dest: /nowhere
+  handlers:
+    - name: restart_web
+      service:
+        name: httpd
+        state: restarted
+  

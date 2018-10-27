@@ -1,0 +1,23 @@
+---
+- hosts: all
+  vars:
+    myusers:
+      - linda
+      - anna
+    mygroups:
+      - students
+      - profs
+  tasks:
+  - name: create groups
+    group:
+      name: "{{ item }}"
+      state: absent
+    with_items: "{{ mygroups }}"
+  - name: create users with group membership
+    user:
+      name: "{{ item[0] }}"
+      state: absent
+      groups: "{{ item[1] }}"
+    with_nested:
+      - "{{ myusers }}"
+      - "{{ mygroups }}"

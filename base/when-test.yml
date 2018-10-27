@@ -1,0 +1,8 @@
+---
+- hosts: all
+  name: conditional test
+  tasks:
+  - name: conditional create user
+    user:
+      name: lori
+    when: ansible_default_ipv4.address == "192.168.4.81"

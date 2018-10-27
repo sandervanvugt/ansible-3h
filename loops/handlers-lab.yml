@@ -1,0 +1,24 @@
+---
+- name: copy new index.html
+  hosts: centos
+  tasks:
+    - name: install httpd
+      package: 
+        name: httpd
+        state: present
+    - name: start httpd
+      service: 
+        name: httpd
+        state: started
+    - name: copy index.html
+      copy:
+        src: /tmp/index.html
+        dest: /var/www/html/index.html
+      notify:
+        - restart_web
+  handlers:
+    - name: restart_web
+      service:
+        name: httpd
+        state: restarted
+  
