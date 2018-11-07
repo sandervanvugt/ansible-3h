@@ -1,0 +1,24 @@
+---
+- name: clean up all
+  hosts: ansible2.example.com
+  tasks:
+  - name: remove vsftpd
+    yum: 
+      name: vsftpd
+      state: absent
+  - name: remove httpd
+    package:
+      name: httpd
+      state: absent
+  - name: remove ftp content
+    file:
+      path: /var/ftp/pub/README
+      state: absent
+  - name: remove remote facts
+    file:
+      path: /etc/ansible/facts.d/
+      state: absent
+  - name: remove httpd contents
+    file: 
+      path: /var/www/html/index.html
+      state: absent
