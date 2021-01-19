@@ -1,0 +1,15 @@
+- name: showing some facts
+  hosts: ansible1.example.com
+  tasks:
+  - name: show date
+    debug:
+      var: ansible_facts.date_time.date
+  - name: show date pythong preferred
+    debug:
+      var: ansible_facts['date_time']['date'] 
+  - name: three
+    debug:
+      var: ansible_date_time.date
+  - name: four
+    debug:
+      var: ansible_date_time['date']

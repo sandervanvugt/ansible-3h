@@ -1,6 +1,0 @@
----
-- name: role usage example
-  hosts: ansible2.example.com
-
-  roles:
-  - motd

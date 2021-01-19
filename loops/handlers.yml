@@ -1,6 +1,6 @@
 ---
 - name: copy new index.html
-  hosts: centos
+  hosts: ansible1.example.com
   force_handlers: yes
   tasks:
     - name: install httpd

@@ -4,11 +4,10 @@
   tasks:
   - name: remove services
     yum: 
-      name: "{{ item }}"
+      name: 
+        - httpd
+        - vsftpd
       state: absent
-    with_items:
-      - httpd
-      - vsftpf
   - name: remove files
     file:
       path: "{{ item }}"

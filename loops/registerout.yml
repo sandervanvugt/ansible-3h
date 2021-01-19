@@ -1,0 +1,17 @@
+---
+- name: restart sshd service if httpd is running
+  hosts: ansible1
+  tasks:
+  - name: get httpd service status
+    command: systemctl is-active httpd
+    ignore_errors: yes
+    register: result
+  - name: show result variable contents
+    debug:
+      msg: printing contents of the registered variable {{ result }}
+  - name: restart sshd service
+    service:
+      name: sshd
+      state: restarted
+    when: result.rc == 0
+

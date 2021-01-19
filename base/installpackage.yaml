@@ -1,0 +1,7 @@
+- name: install pkg demo
+  hosts: ansible1.example.com
+  tasks:
+  - name: install {{ package }}
+    package:
+      name: "{{ package }}"
+      state: latest
